@@ -14,5 +14,5 @@ void main(void) {
 	gl_Position = u_mvp * vec4(a_position, 1.0);
 	v_texcoords = a_texcoords;
 	v_colour = vec4(u_colour, 1.0);
-	v_brightness = 1 - length ( u_position + a_position - u_pposition ) / 100; 
+	v_brightness = 0.4 - length ( u_position + a_position - u_pposition ) / 500; 
 };
