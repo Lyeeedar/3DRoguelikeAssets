@@ -1,5 +1,5 @@
 attribute vec3 a_position;
-attribute vec2 a_texcoords;
+attribute vec2 a_texCoord0;
 
 uniform mat4 u_mvp;
 uniform vec3 u_position;
@@ -19,7 +19,7 @@ varying vec4 v_colour;
 
 void main(void) {
 	gl_Position = u_mvp * vec4(a_position, 1.0);
-	v_texcoords = a_texcoords;
+	v_texcoords = a_texCoord0;
 	
 	float brightness1 = 1 - length ( u_position + a_position - u_light1_position ) / u_light1_attenuation;
 	float brightness2 = 1 - length ( u_position + a_position - u_light2_position ) / u_light2_attenuation;
