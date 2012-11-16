@@ -8,11 +8,9 @@ uniform mat3 u_normal;
 uniform vec3 u_colour;
 uniform vec3 u_ambient;
 
-const int max_lights = 5;
-
-uniform vec3 u_light_vector[max_lights];
-uniform vec3 u_light_colour[max_lights];
-uniform float u_light_attenuation[max_lights];
+uniform vec3 u_light_vector[1];
+uniform vec3 u_light_colour[1];
+uniform float u_light_attenuation[1];
 
 varying vec2 v_texcoords;
 varying vec4 v_colour;
@@ -39,7 +37,7 @@ void main(void) {
 	
 	vec3 vertex_position = (u_model * vec4(a_position, 1.0));
 	
-	for (int i = 0; i < max_lights; i++)
+	for (int i = 0; i < 1; i++)
 	{
 		vec3 light_model = u_light_vector[i] - vertex_position;
 
