@@ -44,6 +44,19 @@ float wrapLight(vec3 nor, vec3 direction){
 	return dot(nor, direction) * 0.5 + 0.5;
 }
 
+vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, vec3 n_dir)
+{
+	if (length(l_colour) == 0) return vec3(0, 0, 0);
+
+	float distance = length(l_vector);
+	vec3 l_dir = normalize(l_vector);
+	
+	float attenuation = 1.0 / (l_attenuation * distance);
+	float intensity = attenuation * max(0.0, dot(n_dir, l_dir));
+	
+	return l_colour * intensity;
+}
+
 void main()
 {	
 	v_texCoords = a_texCoord0;
@@ -51,7 +64,7 @@ void main()
 	gl_Position = u_pv * worldPos;
 
 	vec3 pos  = worldPos.xyz;
-	vec3 normal = u_normal_matrix * normalize(a_normal);
+	vec3 normal = normalize(u_normal_matrix * a_normal);
 	
 	vec3 light_agg_col = vec3(0, 0, 0);
 	vec3 material_agg_col = vec3(0, 0, 0);
@@ -65,15 +78,20 @@ void main()
 
 #if LIGHTS_NUM > 0		
 	for ( int i = 0; i < LIGHTS_NUM; i++ ){	
-		vec3 dif  = u_light_positions[i] - pos;
+		//vec3 dif  = u_light_positions[i] - pos;
 		//fastest way to calculate inverse of length				
-		float invLen = inversesqrt(dot(dif, dif));
-		float weight = invLen * u_light_intensities[i];
+		//float invLen = inversesqrt(dot(dif, dif));
+		//float weight = invLen * u_light_intensities[i];
 				
-		vec3 L = invLen * dif;// normalize
-		float lambert = wrapLight(normal, L);
-		weight *= lambert;		
-		light_agg_col += u_light_colours[i] * weight;
+		//vec3 L = invLen * dif;// normalize
+		//float lambert = wrapLight(normal, L);
+		//weight *= lambert;		
+		//light_agg_col += u_light_colours[i] * weight;
+
+		vec3 light_model = u_light_positions[i] - pos;
+
+		light_agg_col += calculateLight(light_model, u_light_colours[i], u_light_intensities[i], normal);
+		
 		
 	}
 #endif
