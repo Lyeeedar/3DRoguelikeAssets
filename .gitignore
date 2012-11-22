@@ -1,0 +1,7 @@
+/bin
+/libs
+/res
+/AndroidManifest.xml
+/proguard.cfg
+/project.properties
+/gen

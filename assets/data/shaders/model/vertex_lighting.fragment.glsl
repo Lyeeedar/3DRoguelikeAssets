@@ -20,6 +20,10 @@ uniform vec4 u_fog_colour;
 varying float v_fog;
 #endif
 
+#ifdef u_glowFlag
+uniform float u_glow;
+#endif
+
 varying MED vec2 v_texCoords;
 varying vec4 v_diffuse;
 void main()
@@ -43,7 +47,11 @@ void main()
 	
 
 	gl_FragColor.rgb = light.rgb;
-#ifdef u_translucentFlag
-	gl_FragColor.a = light.a;
+
+#ifdef u_glowFlag
+	gl_FragColor.a = u_glow;
+#else
+	gl_FragColor.a = 0.0;
 #endif
+
 }
