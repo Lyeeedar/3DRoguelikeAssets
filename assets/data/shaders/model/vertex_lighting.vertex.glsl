@@ -121,6 +121,10 @@ void main()
 	v_fog = min(fog, 1.0);	
 #endif
 
+#if LIGHTS_NUM > 0
 	v_diffuse.rgb = material_agg_col * (u_ambient.rgb + light_agg_col);
+#else
+	v_diffuse.rgb = material_agg_col;
+#endif
 	
 }
