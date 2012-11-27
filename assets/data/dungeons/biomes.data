@@ -22,7 +22,7 @@
 
 
 <!-- A generic biome. Has grey walls and grey floors. Uses the serk generator (rooms and corridors) -->
-<Generic>
+<generic>
 
 	<generator>Serk</generator>
 
@@ -43,9 +43,9 @@
 	</floor>
 
 	<ambient_light>
-		<red>0.3</red>
-		<green>0.3</green>
-		<blue>0.3</blue>
+		<red>0.2</red>
+		<green>0.2</green>
+		<blue>0.2</blue>
 	</ambient_light>
 
 	<room_settings>
@@ -107,4 +107,4 @@
 			</size>
 		</OTHER>
 	</room_settings>
-</Generic>
+</generic>
