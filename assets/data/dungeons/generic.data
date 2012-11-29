@@ -19,9 +19,9 @@
 					<name></name>
 					<dimensions>
 						<number>3</number>
-						<d1>5.0</d1>
-						<d2>5.0</d2>
-						<d3>5.0</d3>
+						<d1>1.0</d1>
+						<d2>1.0</d2>
+						<d3>1.0</d3>
 					</dimensions>
 				</model>
 				<texture>tex^</texture>
