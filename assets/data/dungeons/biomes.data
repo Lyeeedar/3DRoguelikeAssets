@@ -28,6 +28,21 @@
 
 	<height>15</height>
 
+	<description>
+		<char>
+			<char>+</char>
+			<description>An unlocked door.</description>
+		</char>
+		<char>
+			<char>#</char>
+			<description>A Wall</description>
+		</char>
+		<char>
+			<char>.</char>
+			<description>Some Floor</description>
+		</char>
+	</description>
+
 	<wall>
 		<texture>tex#</texture>
 		<red>0.517</red>

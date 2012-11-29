@@ -11,7 +11,7 @@
 		<definitions>
 			<symbol>
 				<char>L</char>
-				<type>stair_up</type>
+				<type>STAIR_UP</type>
 				<visible>true</visible>
 				<description>A Ladder. It leads up.</description>
 				<model>
@@ -19,7 +19,7 @@
 					<name></name>
 					<dimensions>
 						<number>3</number>
-						<d1>1.0</d1>
+						<d1>2.0</d1>
 						<d2>1.0</d2>
 						<d3>1.0</d3>
 					</dimensions>
@@ -34,7 +34,7 @@
 		</definitions>
 
 		<room>
-			<row1>L</row1>
+			<row>L</row>
 		</room>
 	</ladder>
 
@@ -42,11 +42,118 @@
 
 <!-- END rooms. Size 1-3 -->
 <END>
+	<ladder>
+		<width>1</width>
+		<height>1</height>
+
+		<definitions>
+			<symbol>
+				<char>L</char>
+				<type>STAIR_DOWN</type>
+				<visible>true</visible>
+				<description>A Ladder. It leads up.</description>
+				<model>
+					<type>cube</type>
+					<name></name>
+					<dimensions>
+						<number>3</number>
+						<d1>5.0</d1>
+						<d2>5.0</d2>
+						<d3>5.0</d3>
+					</dimensions>
+				</model>
+				<texture>tex^</texture>
+				<colour>
+					<red>1.0</red>
+					<green>1.0</green>
+					<blue>1.0</blue>
+				</colour>
+			</symbol> 
+		</definitions>
+
+		<room>
+			<row>L</row>
+		</room>
+	</ladder>
 
 </END>
 
 <!-- MAIN rooms. Size 15-25 -->
 <MAIN>
+
+	<monster_village>
+		<width>15</width>
+		<height>15</height>
+
+		<definitions>
+
+			<symbol>
+				<char>l</char>
+				<type>FIRE_CAMP</type>
+				<visible>false</visible>
+			</symbol>
+
+			<symbol>
+				<char>+</char>
+				<type>DOOR_UNLOCKED</type>
+				<visible>true</visible>
+				<description>A door. It's unlocked.</description>
+				<model>
+					<type>cube</type>
+					<name></name>
+					<dimensions>
+						<number>3</number>
+						<d1>5.0</d1>
+						<d2>8.0</d2>
+						<d3>1.0</d3>
+					</dimensions>
+				</model>
+				<texture>tex+</texture>
+				<colour>
+					<red>1.0</red>
+					<green>1.0</green>
+					<blue>1.0</blue>
+				</colour>
+			</symbol>
+
+			<symbol>
+				<char>0</char>
+				<type>SPAWNER_0</type>
+				<visible>false</visible>
+			</symbol>
+
+			<symbol>
+				<char>1</char>
+				<type>SPAWNER_1</type>
+				<visible>false</visible>
+			</symbol>
+
+			<symbol>
+				<char>2</char>
+				<type>SPAWNER_2</type>
+				<visible>false</visible>
+			</symbol> 
+
+		</definitions>
+
+		<room>
+			<row>...............</row>
+			<row>..#####+#####..</row>
+			<row>..#l0.#.#.0l#..</row>
+			<row>..#0..+.+..0#..</row>
+			<row>..#...#.#...#..</row>
+			<row>..#####.#####..</row>
+			<row>..#....0....#..</row>
+			<row>..#####.#####..</row>
+			<row>..#...#.#...#..</row>
+			<row>..#...+.+..0#..</row>
+			<row>..#...#.#.0l#..</row>
+			<row>..#1.1#######..</row>
+			<row>..#l2l.+....#..</row>
+			<row>..###########..</row>
+			<row>...............</row>
+		</room>
+	</monster_village>
 
 </MAIN>
 
@@ -67,30 +174,30 @@
 
 			<symbol>
 				<char>l</char>
-				<type>light_fire</type>
+				<type>FIRE_CAMP</type>
 				<visible>false</visible>
 			</symbol>
 
 			<symbol>
 				<char>0</char>
-				<type>spawner_0</type>
+				<type>SPAWNER_0</type>
 				<visible>false</visible>
 			</symbol>
 
 			<symbol>
 				<char>1</char>
-				<type>spawner_1</type>
+				<type>SPAWNER_1</type>
 				<visible>false</visible>
 			</symbol> 
 
 		</definitions>
 
 		<room>
-			<row1>.....</row1>
-			<row2>.0.0.</row2>
-			<row3>..l.0</row3>
-			<row4>.0.1.</row4>
-			<row5>.....</row5>
+			<row>.....</row>
+			<row>.0.0.</row>
+			<row>..l.0</row>
+			<row>.0.1.</row>
+			<row>.....</row>
 		</room>
 
 	</monster_camp>
