@@ -103,7 +103,7 @@
 		<SPECIAL>
 			<number>
 				<min>0</min>
-				<var>2</var>
+				<var>0</var>
 			</number>
 			<size>
 				<min>5</min>
@@ -113,8 +113,8 @@
 
 		<OTHER>
 			<number>
-				<min>10</min>
-				<var>40</var>
+				<min>0</min>
+				<var>0</var>
 			</number>
 			<size>
 				<min>3</min>
