@@ -91,13 +91,14 @@
 				<char>l</char>
 				<type>FIRE_CAMP</type>
 				<visible>false</visible>
+				<description>A fire. It's hot.</description>
 			</symbol>
 
 			<symbol>
 				<char>+</char>
 				<type>DOOR_UNLOCKED</type>
 				<visible>true</visible>
-				<description>A door. It's unlocked.</description>
+				<description>A door. It's unlocked. This was placed by the room placer.</description>
 				<model>
 					<type>cube</type>
 					<name></name>

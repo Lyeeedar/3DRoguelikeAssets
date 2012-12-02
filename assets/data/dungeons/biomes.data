@@ -31,7 +31,7 @@
 	<description>
 		<char>
 			<char>+</char>
-			<description>An unlocked door.</description>
+			<description>An unlocked door. This was placed by the Level Generator.</description>
 		</char>
 		<char>
 			<char>#</char>
@@ -40,6 +40,10 @@
 		<char>
 			<char>.</char>
 			<description>Some Floor</description>
+		</char>
+		<char>
+			<char>R</char>
+			<description>The ceiling. Sure would hurt if that fell on your head.</description>
 		</char>
 	</description>
 
@@ -58,9 +62,9 @@
 	</floor>
 
 	<ambient_light>
-		<red>0.2</red>
-		<green>0.2</green>
-		<blue>0.2</blue>
+		<red>0.8</red>
+		<green>0.8</green>
+		<blue>0.8</blue>
 	</ambient_light>
 
 	<room_settings>
