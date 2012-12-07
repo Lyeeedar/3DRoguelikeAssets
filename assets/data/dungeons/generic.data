@@ -1,209 +1,798 @@
 <?xml version="1.0"?>
 
+<!-- .............................................................................................. -->
+<!-- .............................................................................................. -->
+<!-- ..@@@@@@@@@@@@..@@@@@@@@@@@..@@@......@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+<!-- ..@@............@@...........@@.@@....@@..@@...........@@.......@@......@@.......@@........... -->
+<!-- ..@@.....@@@@@..@@@@@@@@@@@..@@...@@..@@..@@@@@@@@@@@..@@@@@@@@@@@......@@.......@@........... -->
+<!-- ..@@........@@..@@...........@@.....@@@@..@@...........@@.@@@...........@@.......@@........... -->
+<!-- ..@@@@@@@@@@@@..@@@@@@@@@@@..@@.......@@..@@@@@@@@@@@..@@....@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+<!-- .............................................................................................. -->
+<!-- .............................................................................................. -->
+
+<!-- This file defines rooms that are generic to all biomes. Look in each biome file for its unique rooms.
+
+FILE STRUCTURE INFO: 
+
+	GLOBAL block:
+		- Symbol definitions used by all the rooms in the file. Overriding the behaviour of the GLOBAL defintions in a room is not advised, use a different symbol instead.
+
+	Rest:
+		- The rooms for each room type (START, END, MAIN, SPECIAL and OTHER)
+
+
+BLOCK STRUCTURE INFO:
+
+		ROOM:
+			- Enclosed by tags with a room name (used for admin only) - REQUIRED
+
+			- Size of the room in characters - REQUIRED
+				- Width -> The width of the room
+				- Height -> The height of the room
+
+			- Definitions of symbols used in the room - OPTIONAL
+				- More info on this in the DEFINITIONS description below
+
+			- meta -> Meta data used by the room placer. - REQUIRED BY SOME FEATURES
+
+			- Room contents, split up into rows. Make sure the length of a row and the number match the width and height respectively. - REQUIRED
+
+				- Each row of the room. Predefined symbols:
+											- # -> A wall
+											- . -> A floor
+					- Any extra symbols added will need to be looked up from the GLOBAL definitions or the room definitions
+
+		DEFINITIONS:
+			- These are definitions of the symbols that are used in the rooms. For example the + character can be defined to be a door.
+
+			- Enclosed by a SYMBOL tag - REQUIRED
+
+				- char -> The character being defined - REQUIRED
+
+				- type -> The type of the symbol (in case extra AI is needed) - REQUIRED
+					- STATIC type means no special AI. Useful for objects that just need a description.
+					- FIRE_X (where X is CAMP, TORCH) -> A flame particle emitter.
+					- DOOR_UNLOCKED -> An unlocked door. (Does not need a key)
+					- SPAWNER_X (where X is 0-9 or B for Boss) -> A monster will be spawned at this location. 0 = weak monster, 9 = really tough monster. B = boss monster. Spawners require the 'monster_type' meta data entry to be set. (Options are TRIBAL, GROUP, SINGLE or ANY)
+					- TREASURE -> Some depth appropriate treasure will be placed here
+					- ARTIFACT -> An artifact will be placed here
+					- ALTAR -> An altar will be placed here
+
+				- visible -> Whether the object is visible. If 'true' then the mesh must be defined (see below). Can be overwridden by the generating code if the type is not STATIC. - REQUIRED
+
+				- description -> The text displayed when looking at the object. -OPTIONAL (but recommended)
+
+				(If visible was 'true' then the model variables need to be provided. Otherwise the next part can be ommitted from the entry.)
+
+				- model -> The model for this object. - REQUIRED IF VISIBLE
+
+					- type -> The model type - REQUIRED IF VISIBLE
+						- cube -> Generate a cube for the model (3 dimensions. width, height, depth)
+						- file -> load the model from a file
+
+					- name -> The name of the file to load. The file will be loaded from the data/models folder. Will have the .obj extension appended to it - REQUIRED IF VISIBLE AND TYPE == FILE
+
+					- dimensions -> The dimensions for generating the mesh. - REQUIRED IF VISIBLE AND TYPE != FILE
+						- number -> The number of dimensions - REQUIRED IF VISIBLE AND TYPE != FILE
+						- d -> The size of the mesh in this dimension. Number of 'd' blocks must equal the 'number' specified. - REQUIRED IF VISIBLE AND TYPE != FILE
+
+				- texture -> The texture for the model. Will be loaded from data/textures. Will have the .png extensions appended to it. - REQUIRED IF VISIBLE
+
+				- colour -> The colour to tint texture on the model with. Defined in RGB values as a float in the range 0-1. Use 1, 1, 1 for no tint, and 0, 0, 0 for completely black texture. - REQUIRED IF VISIBLE
+					- red -> The red component of the colour - REQUIRED IF VISIBLE
+					- green -> The green component of the colour - REQUIRED IF VISIBLE
+					- blue -> The blue component of the colour - REQUIRED IF VISIBLE
+-->
+
 <ROOM_DEFINITIONS>
 
-<!-- START rooms. Size 1-3 -->
-<START>
-	<ladder>
-		<width>1</width>
-		<height>1</height>
+	<!-- Symbol definitions used by the entire file -->
+	<GLOBAL>
 
-		<definitions>
-			<symbol>
-				<char>L</char>
-				<type>STAIR_UP</type>
-				<visible>true</visible>
-				<description>A Ladder. It leads up.</description>
-				<model>
-					<type>cube</type>
-					<name></name>
-					<dimensions>
-						<number>3</number>
-						<d1>2.0</d1>
-						<d2>1.0</d2>
-						<d3>1.0</d3>
-					</dimensions>
-				</model>
-				<texture>tex^</texture>
-				<colour>
-					<red>1.0</red>
-					<green>1.0</green>
-					<blue>1.0</blue>
-				</colour>
-			</symbol> 
-		</definitions>
+		<symbol>
+			<char>l</char>
+			<type>FIRE_CAMP</type>
+			<visible>false</visible>
+			<description>A fire. It's hot.</description>
+		</symbol>
 
-		<room>
-			<row>L</row>
-		</room>
-	</ladder>
+		<symbol>
+			<char>t</char>
+			<type>FIRE_TORCH</type>
+			<visible>false</visible>
+			<description>A blazing torch. It lights stuff up.</description>
+		</symbol>
 
-</START>
+		<symbol>
+			<char>+</char>
+			<type>DOOR_UNLOCKED</type>
+			<visible>true</visible>
+			<description>A door. It's unlocked. This was placed by the room placer.</description>
+			<model>
+				<type>cube</type>
+				<dimensions>
+					<number>3</number>
+					<d1>5.0</d1>
+					<d2>8.0</d2>
+					<d3>1.0</d3>
+				</dimensions>
+			</model>
+			<texture>tex+</texture>
+			<colour>
+				<red>1.0</red>
+				<green>1.0</green>
+				<blue>1.0</blue>
+			</colour>
+		</symbol>
 
-<!-- END rooms. Size 1-3 -->
-<END>
-	<ladder>
-		<width>1</width>
-		<height>1</height>
+		<symbol>
+			<char>0</char>
+			<type>SPAWNER_0</type>
+			<visible>false</visible>
+		</symbol>
 
-		<definitions>
-			<symbol>
-				<char>L</char>
-				<type>STAIR_DOWN</type>
-				<visible>true</visible>
-				<description>A Ladder. It leads up.</description>
-				<model>
-					<type>cube</type>
-					<name></name>
-					<dimensions>
-						<number>3</number>
-						<d1>5.0</d1>
-						<d2>5.0</d2>
-						<d3>5.0</d3>
-					</dimensions>
-				</model>
-				<texture>tex^</texture>
-				<colour>
-					<red>1.0</red>
-					<green>1.0</green>
-					<blue>1.0</blue>
-				</colour>
-			</symbol> 
-		</definitions>
+		<symbol>
+			<char>1</char>
+			<type>SPAWNER_1</type>
+			<visible>false</visible>
+		</symbol>
 
-		<room>
-			<row>L</row>
-		</room>
-	</ladder>
+		<symbol>
+			<char>2</char>
+			<type>SPAWNER_2</type>
+			<visible>false</visible>
+		</symbol>
 
-</END>
+		<symbol>
+			<char>3</char>
+			<type>SPAWNER_3</type>
+			<visible>false</visible>
+		</symbol>
 
-<!-- MAIN rooms. Size 15-25 -->
-<MAIN>
+		<symbol>
+			<char>4</char>
+			<type>SPAWNER_4</type>
+			<visible>false</visible>
+		</symbol>
 
-	<monster_village>
-		<width>15</width>
-		<height>15</height>
+		<symbol>
+			<char>5</char>
+			<type>SPAWNER_5</type>
+			<visible>false</visible>
+		</symbol> 
 
-		<definitions>
+		<symbol>
+			<char>6</char>
+			<type>SPAWNER_6</type>
+			<visible>false</visible>
+		</symbol> 
 
-			<symbol>
-				<char>l</char>
-				<type>FIRE_CAMP</type>
-				<visible>false</visible>
-				<description>A fire. It's hot.</description>
-			</symbol>
+		<symbol>
+			<char>7</char>
+			<type>SPAWNER_7</type>
+			<visible>false</visible>
+		</symbol>
 
-			<symbol>
-				<char>+</char>
-				<type>DOOR_UNLOCKED</type>
-				<visible>true</visible>
-				<description>A door. It's unlocked. This was placed by the room placer.</description>
-				<model>
-					<type>cube</type>
-					<name></name>
-					<dimensions>
-						<number>3</number>
-						<d1>5.0</d1>
-						<d2>8.0</d2>
-						<d3>1.0</d3>
-					</dimensions>
-				</model>
-				<texture>tex+</texture>
-				<colour>
-					<red>1.0</red>
-					<green>1.0</green>
-					<blue>1.0</blue>
-				</colour>
-			</symbol>
+		<symbol>
+			<char>8</char>
+			<type>SPAWNER_8</type>
+			<visible>false</visible>
+		</symbol>
 
-			<symbol>
-				<char>0</char>
-				<type>SPAWNER_0</type>
-				<visible>false</visible>
-			</symbol>
+		<symbol>
+			<char>9</char>
+			<type>SPAWNER_9</type>
+			<visible>false</visible>
+		</symbol>
 
-			<symbol>
-				<char>1</char>
-				<type>SPAWNER_1</type>
-				<visible>false</visible>
-			</symbol>
+		<symbol>
+			<char>B</char>
+			<type>SPAWNER_BOSS</type>
+			<visible>false</visible>
+		</symbol>
 
-			<symbol>
-				<char>2</char>
-				<type>SPAWNER_2</type>
-				<visible>false</visible>
-			</symbol> 
+		<symbol>
+			<char>$</char>
+			<type>TREASURE</type>
+			<visible>false</visible>
+		</symbol>
 
-		</definitions>
+		<symbol>
+			<char>A</char>
+			<type>ALTAR</type>
+			<visible>false</visible>
+		</symbol>
 
-		<room>
-			<row>...............</row>
-			<row>..#####+#####..</row>
-			<row>..#l0.#.#.0l#..</row>
-			<row>..#0..+.+..0#..</row>
-			<row>..#...#.#...#..</row>
-			<row>..#####.#####..</row>
-			<row>..#....0....#..</row>
-			<row>..##+##.##+##..</row>
-			<row>..#1.1#l#...#..</row>
-			<row>..#...#.#..0#..</row>
-			<row>..#l2l#.#.0l#..</row>
-			<row>..##+########..</row>
-			<row>..#.........#..</row>
-			<row>..###########..</row>
-			<row>...............</row>
-		</room>
-	</monster_village>
+	</GLOBAL>
 
-</MAIN>
+	<!-- START rooms. Size 1-3 -->
+	<START>
+		<ladder>
+			<width>1</width>
+			<height>1</height>
 
-<!-- SPECIAL rooms. Size 5-20 -->
-<SPECIAL>
+			<definitions>
+				<symbol>
+					<char>L</char>
+					<type>STAIR_UP</type>
+					<visible>true</visible>
+					<description>A Ladder. It leads up.</description>
+					<model>
+						<type>cube</type>
+						<dimensions>
+							<number>3</number>
+							<d1>2.0</d1>
+							<d2>1.0</d2>
+							<d3>1.0</d3>
+						</dimensions>
+					</model>
+					<texture>tex^</texture>
+					<colour>
+						<red>1.0</red>
+						<green>1.0</green>
+						<blue>1.0</blue>
+					</colour>
+				</symbol> 
+			</definitions>
 
-</SPECIAL>
+			<room>
+				<row>L</row>
+			</room>
+		</ladder>
 
-<!-- OTHER rooms. Size 3-8 -->
-<OTHER>
+	</START>
 
-	<monster_camp>
+	<!-- END rooms. Size 1-3 -->
+	<END>
+		<ladder>
+			<width>1</width>
+			<height>1</height>
 
-		<width>5</width>
-		<height>5</height>
+			<definitions>
+				<symbol>
+					<char>L</char>
+					<type>STAIR_DOWN</type>
+					<visible>true</visible>
+					<description>A Ladder. It leads down.</description>
+					<model>
+						<type>cube</type>
+						<dimensions>
+							<number>3</number>
+							<d1>5.0</d1>
+							<d2>5.0</d2>
+							<d3>5.0</d3>
+						</dimensions>
+					</model>
+					<texture>tex^</texture>
+					<colour>
+						<red>1.0</red>
+						<green>1.0</green>
+						<blue>1.0</blue>
+					</colour>
+				</symbol> 
+			</definitions>
 
-		<definitions>
+			<room>
+				<row>L</row>
+			</room>
+		</ladder>
 
-			<symbol>
-				<char>l</char>
-				<type>FIRE_CAMP</type>
-				<visible>false</visible>
-			</symbol>
+	</END>
 
-			<symbol>
-				<char>0</char>
-				<type>SPAWNER_0</type>
-				<visible>false</visible>
-			</symbol>
+	<!-- MAIN rooms. Size 15-25 -->
+	<MAIN>
 
-			<symbol>
-				<char>1</char>
-				<type>SPAWNER_1</type>
-				<visible>false</visible>
-			</symbol> 
+		<pillar-diamond>
+			<width>23</width>
+			<height>23</height>
 
-		</definitions>
+			<meta>
+				<monster_type>GROUP</monster_type>
+			</meta>
 
-		<room>
-			<row>.....</row>
-			<row>.0.0.</row>
-			<row>..l.0</row>
-			<row>.0.1.</row>
-			<row>.....</row>
-		</room>
+			<room>
+				<row>.......................</row>
+				<row>...#...#.......#...#...</row>
+				<row>.#...#....#+#....#...#.</row>
+				<row>...#...#.##.##.#...#...</row>
+				<row>.#...#..##.0.##..#...#.</row>
+				<row>...#...##t#.#t##...#...</row>
+				<row>.#...###1.....1###...#.</row>
+				<row>...#.####..#..####.#...</row>
+				<row>.#..##.....#.....##..#.</row>
+				<row>...##....#####....##...</row>
+				<row>.###..##.......##..###.</row>
+				<row>.##....#..#.#..#....##.</row>
+				<row>.#2.#..#...9...#..#.2#.</row>
+				<row>.##...##..#l#..##...##.</row>
+				<row>..##.......#.......##..</row>
+				<row>.#.##.#..#####..#.##.#.</row>
+				<row>...###.....#.....###...</row>
+				<row>.#...##.#.....#.##...#.</row>
+				<row>...#..##..###..##..#...</row>
+				<row>.#...#.##3.$.3##.#...#.</row>
+				<row>...#...###t#t###...#...</row>
+				<row>.#...#...#####...#...#.</row>
+				<row>.......................</row>
+			</room>
+		</pillar-diamond>
 
-	</monster_camp>
+		<laboratory>
+			<width>17</width>
+			<height>17</height>
 
-</OTHER>
+			<meta>
+				<monster_type>SINGLE</monster_type>
+			</meta>
+
+			<definitions>
+				<symbol>
+					<char>w</char>
+					<type>STATIC</type>
+					<visible>true</visible>
+					<description>A workbench covered in various sciencey stuffs. Strange stains and funny smells emanate from it.</description>
+					<model>
+						<type>cube</type>
+						<dimensions>
+							<number>3</number>
+							<d1>5.0</d1>
+							<d2>5.0</d2>
+							<d3>5.0</d3>
+						</dimensions>
+					</model>
+					<texture>texw</texture>
+					<colour>
+						<red>1.0</red>
+						<green>1.0</green>
+						<blue>1.0</blue>
+					</colour>
+				</symbol>
+			</definitions>
+
+			<room>
+				<row>.................</row>
+				<row>.###############.</row>
+				<row>.#$##t......t###.</row>
+				<row>.#+##.B..ww..+.#.</row>
+				<row>.#.##.w.....w#.#.</row>
+				<row>.#.6####+#####.#.</row>
+				<row>.#.##t.......#+#.</row>
+				<row>.#.t##+#####.#.#.</row>
+				<row>.#.##1.#4#$+.#.#.</row>
+				<row>.#.t##.#+###.#5#.</row>
+				<row>.#.##1...###.#l#.</row>
+				<row>.#.###.###2+.#.#.</row>
+				<row>.#.#7#.#4###.#.#.</row>
+				<row>.#.#+#.#+#8#.#+#.</row>
+				<row>.#.......+.#.#9#.</row>
+				<row>.###########+###.</row>
+				<row>.................</row>
+			</room>
+		</laboratory>
+
+		<monster_village>
+			<width>15</width>
+			<height>15</height>
+
+			<meta>
+				<monster_type>TRIBAL</monster_type>
+			</meta>
+
+			<room>
+				<row>...............</row>
+				<row>..#####+#####..</row>
+				<row>..#l0.#.#.0l#..</row>
+				<row>..#0..+.+..0#..</row>
+				<row>..#...#.#...#..</row>
+				<row>..#####.#####..</row>
+				<row>..#....5....#..</row>
+				<row>..##+##.##+##..</row>
+				<row>..#3.3#l#...#..</row>
+				<row>..#...#.#..1#..</row>
+				<row>..#l6l#.#.2l#..</row>
+				<row>..##+########..</row>
+				<row>..##.......$#..</row>
+				<row>..###########..</row>
+				<row>...............</row>
+			</room>
+		</monster_village>
+
+		<pillar-room>
+
+			<width>20</width>
+			<height>20</height>
+
+			<meta>
+				<monster_type>GROUP</monster_type>
+			</meta>
+
+			<room>
+				<row>....................</row>
+				<row>....1........##0....</row>
+				<row>..##.........##.....</row>
+				<row>..##.............##.</row>
+				<row>........##.......##.</row>
+				<row>........##..........</row>
+				<row>.............##.....</row>
+				<row>..##....0....##.....</row>
+				<row>..##.............##.</row>
+				<row>........##.......##.</row>
+				<row>........##..........</row>
+				<row>............1##.....</row>
+				<row>..##.........##.....</row>
+				<row>..##.............##.</row>
+				<row>........##.......##.</row>
+				<row>........##..........</row>
+				<row>.......0.....##.....</row>
+				<row>..##.........##.0...</row>
+				<row>..##................</row>
+				<row>....................</row>
+			</room>
+
+		</pillar-room>
+
+		<super-maze>
+
+			<width>25</width>
+			<height>25</height>
+
+			<meta>
+				<monster_type>GROUP</monster_type>
+			</meta>
+
+			<room>
+				<row>.........................</row>
+				<row>.###.#...#########.#####.</row>
+				<row>...#.#.#..#.#...#.....##.</row>
+				<row>.###.####.#.#.#...###.0#.</row>
+				<row>.#...0....#..###......##.</row>
+				<row>.#.########..#.0.#.#...#.</row>
+				<row>.#..#...#...##...#.#.#...</row>
+				<row>.#.##0#.##.#####...#.###.</row>
+				<row>.#..###..#.......#.#...#.</row>
+				<row>.##...#.###+##########.#.</row>
+				<row>.####.#.#t..0...t#...#.#.</row>
+				<row>.#....#.+..3$$3..+.#.#.#.</row>
+				<row>.#.######t...0..t##..#.#.</row>
+				<row>.#.#....#####+####.....#.</row>
+				<row>.#.#.##.#...#.#....#..##.</row>
+				<row>...#..#.#.#...#######..#.</row>
+				<row>.###..#...#####........#.</row>
+				<row>.#.##.#.###..#..#.######.</row>
+				<row>.#...0#...#..#..#.#.0#.#.</row>
+				<row>.#.####.###.##..#....#.#.</row>
+				<row>.#.#..#..#0.#...##.#...#.</row>
+				<row>.#.#.######.#.#..#.#.###.</row>
+				<row>...#..........#..#.#.....</row>
+				<row>.####.############.#####.</row>
+				<row>.........................</row>
+			</room>
+
+
+		</super-maze>
+
+	</MAIN>
+
+	<!-- SPECIAL rooms. Size 5-20 -->
+	<SPECIAL>
+
+
+		<sealed-beast>
+			<width>9</width>
+			<height>9</height>
+
+			<meta>
+				<monster_type>SINGLE</monster_type>
+			</meta>
+
+			<definitions>
+				<symbol>
+					<char>i</char>
+					<type>SIGN</type>
+					<visible>false</visible>
+					<description>Beware.</description>
+				</symbol>
+			</definitions>
+
+			<room>
+				<row>.........</row>
+				<row>.###+###.</row>
+				<row>.l#i.i#l.</row>
+				<row>.###+###.</row>
+				<row>..l#+#l..</row>
+				<row>..##B##..</row>
+				<row>..l###l..</row>
+				<row>..#l#l#..</row>
+				<row>.........</row>
+			</room>
+		</sealed-beast>
+
+		<vault-square>
+			<width>20</width>
+			<height>20</height>
+
+			<meta>
+				<monster_type>TRIBAL</monster_type>
+			</meta>
+
+			<definitions>
+
+				<symbol>
+					<char>£</char>
+					<type>ARTIFACT</type>
+					<visible>false</visible>
+				</symbol> 
+
+			</definitions>
+
+			<room>
+				<row>....................</row>
+				<row>.##################.</row>
+				<row>.#$$#t..t.£.t..t#.#.</row>
+				<row>.#.9#..6..B..6..#5#.</row>
+				<row>.#..#....3.3....#.#.</row>
+				<row>.##+#..#.....#..#.#.</row>
+				<row>.#..#t.........t#.#.</row>
+				<row>.#.#######+######.#.</row>
+				<row>.#l#.......#...#.$#.</row>
+				<row>.#l#..#####....#..#.</row>
+				<row>.#........#+#...#.#.</row>
+				<row>.########+#.##..#.#.</row>
+				<row>.#....#$#...t#0.0.#.</row>
+				<row>.#..#.#1#...##.2..#.</row>
+				<row>.#..#...#...#######.</row>
+				<row>.#.0#..###.....0..#.</row>
+				<row>.#..####t########.#.</row>
+				<row>.#.......+.....0..+.</row>
+				<row>.##################.</row>
+				<row>....................</row>
+			</room>
+		</vault-square>
+
+		<shrine>
+
+			<width>13</width>
+			<height>13</height>
+
+			<definitions>
+				<symbol>
+					<char>s</char>
+					<type>STATIC</type>
+					<visible>true</visible>
+					<description>A small wooden seat.</description>
+					<model>
+						<type>cube</type>
+						<dimensions>
+							<number>3</number>
+							<d1>3.0</d1>
+							<d2>3.0</d2>
+							<d3>3.0</d3>
+						</dimensions>
+					</model>
+					<texture>texw</texture>
+					<colour>
+						<red>0.9</red>
+						<green>0.8</green>
+						<blue>0.6</blue>
+					</colour>
+
+				</symbol>
+
+			</definitions>
+
+			<room>
+				<row>.............</row>
+				<row>.###########.</row>
+				<row>.###########.</row>
+				<row>.#l..#A#..l#.</row>
+				<row>.##.......##.</row>
+				<row>.##.ss.ss.##.</row>
+				<row>.#l.......l#.</row>
+				<row>.##.ss.ss.##.</row>
+				<row>.##.......##.</row>
+				<row>.#l.ss.ss.l#.</row>
+				<row>.##.......##.</row>
+				<row>.#####+#####.</row>
+				<row>.............</row>
+			</room>
+
+		</shrine>
+
+	</SPECIAL>
+
+	<!-- OTHER rooms. Size 3-8 -->
+	<OTHER>
+
+		<empty>
+			<width>3</width>
+			<height>3</height>
+
+			<room>
+				<row>...</row>
+				<row>...</row>
+				<row>...</row>
+			</room>
+
+		</empty>
+
+		<remains>
+			<width>4</width>
+			<height>6</height>
+
+			<definitions>
+				<symbol>
+					<char>C</char>
+					<type>STATIC</type>
+					<visible>true</visible>
+					<description>Some rotting remains. They look vaguely human but are too far gone to be properly recognisable.</description>
+
+					<model>
+						<type>file</type>
+						<name>model@_dead</name>
+					</model>
+
+					<texture>blank</texture>
+					<colour>
+						<red>0.2</red>
+						<green>0.5</green>
+						<blue>0.1</blue>
+					</colour>
+
+				</symbol>
+			</definitions>
+
+			<room>
+				<row>....</row>
+				<row>.#..</row>
+				<row>.C..</row>
+				<row>..#.</row>
+				<row>.#..</row>
+				<row>....</row>
+			</room>
+		</remains>
+
+		<room-o-doom>
+			<width>6</width>
+			<height>6</height>
+
+			<meta>
+				<monster_type>ANY</monster_type>
+			</meta>
+
+			<room>
+				<row>......</row>
+				<row>.####.</row>
+				<row>.#.7#.</row>
+				<row>.#..#.</row>
+				<row>.#+##.</row>
+				<row>......</row>
+
+			</room>
+		</room-o-doom>
+
+		<door-box>
+			<width>5</width>
+			<height>5</height>
+
+			<room>
+				<row>.....</row>
+				<row>.#+#.</row>
+				<row>.+.+.</row>
+				<row>.#+#.</row>
+				<row>.....</row>
+			</room>
+		</door-box>
+
+		<big-door-box>
+			<width>7</width>
+			<height>7</height>
+
+			<meta>
+				<monster_type>ANY</monster_type>
+			</meta>
+
+			<room>
+				<row>.......</row>
+				<row>.##+##.</row>
+				<row>.#...#.</row>
+				<row>.+.1.+.</row>
+				<row>.#...#.</row>
+				<row>.##+##.</row>
+				<row>.......</row>
+			</room>
+		</big-door-box>
+
+		<mazey>
+			<width>8</width>
+			<height>8</height>
+
+			<meta>
+				<monster_type>ANY</monster_type>
+			</meta>
+
+			<room>
+				<row>........</row>
+				<row>..##..#.</row>
+				<row>.#1###..</row>
+				<row>.#....#.</row>
+				<row>..###.#.</row>
+				<row>.#....#.</row>
+				<row>..#.##..</row>
+				<row>........</row>
+			</room>
+		</mazey>
+
+		<monster_camp>
+
+			<width>5</width>
+			<height>5</height>
+
+			<meta>
+				<monster_type>GROUP</monster_type>
+			</meta>
+
+			<room>
+				<row>.....</row>
+				<row>.0.0.</row>
+				<row>..l.0</row>
+				<row>.0.1.</row>
+				<row>.....</row>
+			</room>
+
+		</monster_camp>
+
+		<long-one>
+			<width>7</width>
+			<height>3</height>
+
+			<room>
+				<row>.......</row>
+				<row>.##+##.</row>
+				<row>.......</row>
+			</room>
+
+		</long-one>
+
+		<torch-pillar>
+			<width>5</width>
+			<height>5</height>
+
+			<room>
+				<row>.....</row>
+				<row>..t..</row>
+				<row>.t#t.</row>
+				<row>..t..</row>
+				<row>.....</row>
+			</room>
+		</torch-pillar>
+
+		<pillar-campfire>
+			<width>5</width>
+			<height>5</height>
+
+			<room>
+				<row>.....</row>
+				<row>.#.#.</row>
+				<row>..l..</row>
+				<row>.#.#.</row>
+				<row>.....</row>
+			</room>
+		</pillar-campfire>
+
+		<pillar-firewall>
+			<width>5</width>
+			<height>5</height>
+
+			<room>
+				<row>.....</row>
+				<row>.#l#.</row>
+				<row>.l.l.</row>
+				<row>.#l#.</row>
+				<row>.....</row>
+			</room>
+		</pillar-firewall>
+
+	</OTHER>
 
 
 </ROOM_DEFINITIONS>

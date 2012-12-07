@@ -62,9 +62,9 @@
 	</floor>
 
 	<ambient_light>
-		<red>0.8</red>
-		<green>0.8</green>
-		<blue>0.8</blue>
+		<red>0.2</red>
+		<green>0.2</green>
+		<blue>0.2</blue>
 	</ambient_light>
 
 	<room_settings>
@@ -107,7 +107,7 @@
 		<SPECIAL>
 			<number>
 				<min>0</min>
-				<var>0</var>
+				<var>1</var>
 			</number>
 			<size>
 				<min>5</min>
@@ -117,8 +117,8 @@
 
 		<OTHER>
 			<number>
-				<min>0</min>
-				<var>0</var>
+				<min>5</min>
+				<var>15</var>
 			</number>
 			<size>
 				<min>3</min>
