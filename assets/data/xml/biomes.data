@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<!-- This file decibes the various possible biomes -->
+
+<!-- 
+	Biomes are in the form:
+
+- Name (name of the level)
+	- Generator (the generator to be used to create the level)
+	- Width (The width of the level)
+	- Height (The height of the level)
+	- Roof (the height of the ceiling in this level)
+	- Wall (the information about how to colour the wall)
+		- Texture (the texture to use on the wall)
+		- Red (the amount of red to tint the texture)
+		- Green (the amount of green to tint the texture)
+		- Blue (the amount of blue to tint the texture)
+	- Floor (same as wall colour but for the floor, see above)
+	- Ambient Light (the colour and brightness of the ambient light. Given by RGB values)
+	- Room Settings (information about room sizes and probabilities)
+
+-->
+
+
+<biomes>
+
+	<!-- A generic biome. Has grey walls and grey floors. Uses the serk generator (rectangular rooms and corridors) -->
+	<generic>
+
+		<generator>Serk</generator>
+
+		<width>60</width>
+		<height>60</height>
+
+		<roof>15</roof>
+
+		<description>
+			<char>
+				<char>+</char>
+				<description>An unlocked door. This was placed by the Level Generator.</description>
+			</char>
+			<char>
+				<char>#</char>
+				<description>A Wall</description>
+			</char>
+			<char>
+				<char>.</char>
+				<description>Some Floor</description>
+			</char>
+			<char>
+				<char>R</char>
+				<description>The ceiling. Sure would hurt if that fell on your head.</description>
+			</char>
+		</description>
+
+		<wall>
+			<texture>tex#</texture>
+			<red>0.517</red>
+			<green>0.557</green>
+			<blue>0.217</blue>
+		</wall>
+
+		<floor>
+			<texture>tex.</texture>
+			<red>0.217</red>
+			<green>0.657</green>
+			<blue>0.217</blue>
+		</floor>
+
+		<ambient_light>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+		</ambient_light>
+
+		<room_settings>
+
+			<padding>3</padding>
+
+			<START>
+				<number>
+					<min>1</min>
+					<var>0</var>
+				</number>
+				<size>
+					<min>1</min>
+					<var>2</var>
+				</size>
+			</START>
+
+			<END>
+				<number>
+					<min>1</min>
+					<var>0</var>
+				</number>
+				<size>
+					<min>1</min>
+					<var>2</var>
+				</size>
+			</END>
+
+			<MAIN>
+				<number>
+					<min>1</min>
+					<var>1</var>
+				</number>
+				<size>
+					<min>15</min>
+					<var>10</var>
+				</size>
+			</MAIN>
+
+			<SPECIAL>
+				<number>
+					<min>0</min>
+					<var>1</var>
+				</number>
+				<size>
+					<min>5</min>
+					<var>15</var>
+				</size>
+			</SPECIAL>
+
+			<OTHER>
+				<number>
+					<min>5</min>
+					<var>15</var>
+				</number>
+				<size>
+					<min>3</min>
+					<var>5</var>
+				</size>
+			</OTHER>
+		</room_settings>
+	</generic>
+
+	<!-- A generic biome. Has grey walls and grey floors. Uses the serk generator (rooms and corridors) -->
+	<start_town>
+
+		<generator>Static</generator>
+
+		<width>102</width>
+		<height>102</height>
+
+		<roof>20</roof>
+
+		<description>
+			<char>
+				<char>+</char>
+				<description>An unlocked door. This was placed by the Level Generator.</description>
+			</char>
+			<char>
+				<char>#</char>
+				<description>A Wall</description>
+			</char>
+			<char>
+				<char>.</char>
+				<description>Some Floor</description>
+			</char>
+			<char>
+				<char>R</char>
+				<description>The ceiling. Sure would hurt if that fell on your head.</description>
+			</char>
+		</description>
+
+		<wall>
+			<texture>tex#</texture>
+			<red>0.417</red>
+			<green>0.457</green>
+			<blue>0.417</blue>
+		</wall>
+
+		<floor>
+			<texture>tex.</texture>
+			<red>0.617</red>
+			<green>0.657</green>
+			<blue>0.617</blue>
+		</floor>
+
+		<ambient_light>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</ambient_light>
+
+	</start_town>
+
+</biomes>

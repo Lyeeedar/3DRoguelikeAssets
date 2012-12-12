@@ -26,6 +26,10 @@ BLOCK STRUCTURE INFO:
 		ROOM:
 			- Enclosed by tags with a room name (used for admin only) - REQUIRED
 
+			- Depth the room should appear at - REQUIRED
+				- Depth_min -> the minimum depth
+				- Depth_max the maximum depth
+
 			- Size of the room in characters - REQUIRED
 				- Width -> The width of the room
 				- Height -> The height of the room
@@ -50,7 +54,9 @@ BLOCK STRUCTURE INFO:
 				- char -> The character being defined - REQUIRED
 
 				- type -> The type of the symbol (in case extra AI is needed) - REQUIRED
-					- STATIC type means no special AI. Useful for objects that just need a description.
+					- STATIC -> means no special AI. Useful for objects that just need a description.
+					- STAIR_X -> A stair leading either UP or DOWN, or to OTHER place entirely. Player will be positioned at the staur leading from the level they came from.
+					- PLAYER_PLACER -> This tells the level creator to place the player at this location. Useful for levels without stairs leading the the previous level.
 					- FIRE_X (where X is CAMP, TORCH) -> A flame particle emitter.
 					- DOOR_UNLOCKED -> An unlocked door. (Does not need a key)
 					- SPAWNER_X (where X is 0-9 or B for Boss) -> A monster will be spawned at this location. 0 = weak monster, 9 = really tough monster. B = boss monster. Spawners require the 'monster_type' meta data entry to be set. (Options are TRIBAL, GROUP, SINGLE or ANY)
@@ -148,7 +154,7 @@ BLOCK STRUCTURE INFO:
 			<type>SPAWNER_3</type>
 			<visible>false</visible>
 		</symbol>
-
+ 
 		<symbol>
 			<char>4</char>
 			<type>SPAWNER_4</type>
@@ -211,6 +217,9 @@ BLOCK STRUCTURE INFO:
 			<width>1</width>
 			<height>1</height>
 
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
+
 			<definitions>
 				<symbol>
 					<char>L</char>
@@ -247,6 +256,9 @@ BLOCK STRUCTURE INFO:
 		<ladder>
 			<width>1</width>
 			<height>1</height>
+
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
 
 			<definitions>
 				<symbol>
@@ -286,6 +298,9 @@ BLOCK STRUCTURE INFO:
 			<width>23</width>
 			<height>23</height>
 
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
+
 			<meta>
 				<monster_type>GROUP</monster_type>
 			</meta>
@@ -320,6 +335,9 @@ BLOCK STRUCTURE INFO:
 		<laboratory>
 			<width>17</width>
 			<height>17</height>
+
+			<depth_min>5</depth_min>
+			<depth_max>99</depth_max>
 
 			<meta>
 				<monster_type>SINGLE</monster_type>
@@ -374,6 +392,9 @@ BLOCK STRUCTURE INFO:
 			<width>15</width>
 			<height>15</height>
 
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
+
 			<meta>
 				<monster_type>TRIBAL</monster_type>
 			</meta>
@@ -401,6 +422,9 @@ BLOCK STRUCTURE INFO:
 
 			<width>20</width>
 			<height>20</height>
+
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
 
 			<meta>
 				<monster_type>GROUP</monster_type>
@@ -435,6 +459,9 @@ BLOCK STRUCTURE INFO:
 
 			<width>25</width>
 			<height>25</height>
+
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
 
 			<meta>
 				<monster_type>GROUP</monster_type>
@@ -481,6 +508,9 @@ BLOCK STRUCTURE INFO:
 			<width>9</width>
 			<height>9</height>
 
+			<depth_min>10</depth_min>
+			<depth_max>99</depth_max>
+
 			<meta>
 				<monster_type>SINGLE</monster_type>
 			</meta>
@@ -510,6 +540,9 @@ BLOCK STRUCTURE INFO:
 		<vault-square>
 			<width>20</width>
 			<height>20</height>
+
+			<depth_min>10</depth_min>
+			<depth_max>99</depth_max>
 
 			<meta>
 				<monster_type>TRIBAL</monster_type>
@@ -553,6 +586,9 @@ BLOCK STRUCTURE INFO:
 
 			<width>13</width>
 			<height>13</height>
+
+			<depth_min>8</depth_min>
+			<depth_max>99</depth_max>
 
 			<definitions>
 				<symbol>
@@ -607,6 +643,9 @@ BLOCK STRUCTURE INFO:
 			<width>3</width>
 			<height>3</height>
 
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
+
 			<room>
 				<row>...</row>
 				<row>...</row>
@@ -618,6 +657,9 @@ BLOCK STRUCTURE INFO:
 		<remains>
 			<width>4</width>
 			<height>6</height>
+
+			<depth_min>3</depth_min>
+			<depth_max>99</depth_max>
 
 			<definitions>
 				<symbol>
@@ -655,6 +697,9 @@ BLOCK STRUCTURE INFO:
 			<width>6</width>
 			<height>6</height>
 
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
+
 			<meta>
 				<monster_type>ANY</monster_type>
 			</meta>
@@ -673,6 +718,9 @@ BLOCK STRUCTURE INFO:
 		<door-box>
 			<width>5</width>
 			<height>5</height>
+
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
 
 			<room>
 				<row>.....</row>
@@ -706,6 +754,9 @@ BLOCK STRUCTURE INFO:
 			<width>8</width>
 			<height>8</height>
 
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
+
 			<meta>
 				<monster_type>ANY</monster_type>
 			</meta>
@@ -727,6 +778,9 @@ BLOCK STRUCTURE INFO:
 			<width>5</width>
 			<height>5</height>
 
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
+
 			<meta>
 				<monster_type>GROUP</monster_type>
 			</meta>
@@ -745,6 +799,9 @@ BLOCK STRUCTURE INFO:
 			<width>7</width>
 			<height>3</height>
 
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
+
 			<room>
 				<row>.......</row>
 				<row>.##+##.</row>
@@ -756,6 +813,9 @@ BLOCK STRUCTURE INFO:
 		<torch-pillar>
 			<width>5</width>
 			<height>5</height>
+
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
 
 			<room>
 				<row>.....</row>
@@ -770,6 +830,9 @@ BLOCK STRUCTURE INFO:
 			<width>5</width>
 			<height>5</height>
 
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
+
 			<room>
 				<row>.....</row>
 				<row>.#.#.</row>
@@ -782,6 +845,9 @@ BLOCK STRUCTURE INFO:
 		<pillar-firewall>
 			<width>5</width>
 			<height>5</height>
+			
+			<depth_min>1</depth_min>
+			<depth_max>99</depth_max>
 
 			<room>
 				<row>.....</row>
