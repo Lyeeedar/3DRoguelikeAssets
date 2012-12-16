@@ -22,6 +22,34 @@
 			<visible>false</visible>
 		</symbol>
 
+		<symbol>
+			<char>L</char>
+			<type>STAIR_DOWN</type>
+			<visible>true</visible>
+			<description>A Ladder. It leads up.</description>
+			<meta>
+				<data>
+					<name>level</name>
+					<contents>generic</contents>
+				</data>
+			</meta>
+			<model>
+				<type>cube</type>
+				<dimensions>
+					<number>3</number>
+					<d1>2.0</d1>
+					<d2>1.0</d2>
+					<d3>1.0</d3>
+				</dimensions>
+			</model>
+			<texture>tex^</texture>
+			<colour>
+				<red>1.0</red>
+				<green>1.0</green>
+				<blue>1.0</blue>
+			</colour>
+		</symbol>
+
 	</GLOBAL>
 
 	<!-- The Level -->

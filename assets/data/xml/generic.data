@@ -225,6 +225,12 @@ BLOCK STRUCTURE INFO:
 					<char>L</char>
 					<type>STAIR_UP</type>
 					<visible>true</visible>
+					<meta>
+						<data>
+							<name>level</name>
+							<contents>generic</contents>
+						</data>
+					</meta>
 					<description>A Ladder. It leads up.</description>
 					<model>
 						<type>cube</type>
