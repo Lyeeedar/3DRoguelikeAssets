@@ -12,7 +12,7 @@
 
 <!-- See generic.data for instructions on how to edit this file -->
 
-<ROOM_DEFINITIONS>
+<room_definitions>
 
 	<GLOBAL>
 
@@ -166,4 +166,4 @@
 		</level>
 	</MAIN>
 
-</ROOM_DEFINITIONS>
+</room_definitions>

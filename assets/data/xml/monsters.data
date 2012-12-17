@@ -1,241 +1,344 @@
 
-<MONSTERS>
+<!-- ........................................................................................................... -->
+<!-- ........................................................................................................... -->
+<!-- ..@@@@@@@@@@@@...@@@@@@@@@...@@@......@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+<!-- ..@@...@@...@@..@@.......@@..@@.@@....@@..@@...............@@.......@@...........@@.......@@..@@........... -->
+<!-- ..@@...@@...@@..@@.......@@..@@...@@..@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+<!-- ..@@...@@...@@..@@.......@@..@@.....@@@@...........@@......@@.......@@...........@@.@@@................@@.. -->
+<!-- ..@@...@@...@@...@@@@@@@@@...@@.......@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@....@@@@@..@@@@@@@@@@@.. -->
+<!-- ........................................................................................................... -->
+<!-- ........................................................................................................... -->
 
+
+<!-- 
+	This is the list of different attributes a creature can be assigned in the evolver. Consists of the subgroups:
+		- MIND
+		- VISUAL
+		- SKIN
+		- BONES
+		- MUSCLES
+		- HANDS
+-->
+<attributes>
+
+	<!-- The brain of the creature. Affects its eventual AI (modified by its IQ). Does not affect drops. -->
+	<MIND>
+
+	</MIND>
+
+	<!-- The creatures ability to see. Affects the stimuli entered into the AI. Does not affect drops. -->
+	<VISUAL>
+
+	</VISUAL>
+
+	<!-- The skin of the creature. Affects its health, defenses and weight. Also affects drops. -->
+	<SKIN>
+		<exoskeleton>
+
+		</exoskeleton>
+
+		<feathers>
+
+		</feathers>
+
+		<scales>
+
+		</scales>
+
+		<fur>
+
+			<soft_fur>
+				<calories>0</calories>
+				<description>
+					<overall>Some soft fur. Does not provide any protection.</overall>
+				</description>
+
+				<stats>
+					<WEIGHT>0</WEIGHT>
+
+					<HEALTH>0</HEALTH>
+					<ELE_DEFENSES>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>0</AETHER>
+						<VOID>0</VOID>
+					</ELE_DEFENSES>
+					<DEFENSES>
+						<PIERCE>0</PIERCE>
+						<IMPACT>0</IMPACT>
+						<TOUCH>0<TOUCH>
+					</DEFENSES>
+					<STRENGTH>0</STRENGTH>
+
+				</stats>
+			</soft_fur>
+
+		</fur>
+
+		<leather>
+
+			<soft_leather>
+				<calories>0</calories>
+				<description>
+					<overall>Some soft, leathery skin. Does not provide any protection.</overall>
+				</description>
+
+				<stats>
+					<WEIGHT>0</WEIGHT>
+
+					<HEALTH>0</HEALTH>
+					<ELE_DEFENSES>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>0</AETHER>
+						<VOID>0</VOID>
+					</ELE_DEFENSES>
+					<DEFENSES>
+						<PIERCE>0</PIERCE>
+						<IMPACT>0</IMPACT>
+						<TOUCH>0<TOUCH>
+					</DEFENSES>
+					<STRENGTH>0</STRENGTH>
+
+				</stats>
+			</soft_leather>
+
+		</leather>
+
+		<clothing>
+
+		</clothing>
+
+		<armour_primitive>
+
+		</armour_primitive>
+
+		<armour_magical>
+
+		</armour_magical>
+
+		<armour_mechanical>
+
+		</armour_mechanical>
+
+	</SKIN>
+
+	<!-- The bones of the creature. Affects health, weight and damage defense. Affects drops. -->
+	<BONES>
+
+		<normal>
+			<basic_bones>
+
+				<calories>0</calories>
+
+				<stats>
+					<WEIGHT>0</WEIGHT>
+
+					<HEALTH>0</HEALTH>
+
+					<DEFENSES>
+						<PIERCE>0</PIERCE>
+						<IMPACT>0</IMPACT>
+						<TOUCH>0<TOUCH>
+					</DEFENSES>
+
+				</stats>
+			</basic_bones>
+		</normal>
+	</BONES>
+
+	<!-- The muscles of the creature. Affects strength (damage) and weight. Does not affect drops. -->
+	<MUSCLES>
+
+		<normal>
+			<basic_muscles>
+				<calories>0</calories>
+				<stats>
+					<WEIGHT>0</WEIGHT>
+
+					<STRENGTH>0</STRENGTH>
+
+				</stats>
+			</basic_muscles>
+		</normal>
+
+	</MUSCLES>
+
+	<!-- The attacks of the creature. Affects drops. -->
+	<ATTACK>
+		<teeth>
+			<weak_bite>
+				<calories>0</calories>
+				<stats>
+					<type>teeth</type>
+					<STRENGTH>0</STRENGTH>
+
+				</stats>
+			</weak_bite>
+		</teeth>
+
+		<claws>
+
+		</claws>
+
+		<tail>
+		</tail>
+
+		<weapon_primitive>
+
+		</weapon_primitive>
+
+		<weapon_magical>
+
+		</weapon_magical>
+
+		<weapon_mechanical>
+
+		</weapon_mechanical>
+
+	</ATTACK>
+
+</attributes>
+
+
+<!-- This is the list of different monster types in the game. A monster type consists of definitions of creatures, and a list of where the creature appears in the difficulty heirachy (0-9) -->
+<monsters>
+
+	<!-- The Rodent type. Rats and suchlike -->
 	<RODENT>
 
-		<ACTORS>
+		<depth_min>1</depth_min>
+		<depth_max>10</depth_max>
+
+		<monster_type>group</monster_type>
+
+		<creatures>
 			<MOUSE>
-				<DESCRIPTION>A small furry rodent. It doesn't look very threatening.</DESCRIPTION>
-				<EQUIPMENT>
-					<L_HAND>TEETH</L_HAND>
-				</EQUIPMENT>
-				<MODEL>
-					<TYPE>file</TYPE>
-					<NAME>modelE</NAME>
-				</MODEL>
-				<TEXTURE>blank</TEXTURE>
-				<COLOUR>
-					<RED>0.8</RED>
-					<GREEN>0.2</GREEN>
-					<BLUE>0.3</BLUE>
-				</COLOUR>
+				<visual>
+					<description>A mouse. It seems hungry.</description>
+					<model>
+						<type>file</type>
+						<name>modelE</name>
+						<scale>0.2</scale>
+					</model>
+					<texture>blank</texture>
+					<colour>
+						<red>0.8</red>
+						<green>0.1</green>
+						<blue>0.1</blue>
+					</colour>
+				</visual>
+
+				<stats>
+
+					<base_calories>50</base_calories>
+
+					<MIND>
+						<scaling>3.0</scaling>
+						<type>group</type>
+					</MIND>
+
+					<VISUAL>
+						<scaling>1.0</scaling>
+						<type>eyes</type>
+					</VISUAL>
+
+					<SKIN>
+						<scaling>1.0</scaling>
+						<type>fur</type>
+					</SKIN>
+
+					<BONES>
+						<scaling>1.0</scaling>
+						<type>normal</type>
+					</BONES>
+
+					<MUSCLES>
+						<scaling>2.0</scaling>
+						<type>normal</type>
+					</MUSCLES>
+
+					<ATTACK>
+						<scaling>1.0</scaling>
+						<type>teeth</type>
+					</ATTACK>
+
+					<weight>10</weight>
+					<health>10</health>
+
+					<ele_defenses>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>0</AETHER>
+						<VOID>0</VOID>
+					</ele_defenses>
+					<defenses>
+						<PIERCE>0</PIERCE>
+						<IMPACT>0</IMPACT>
+						<TOUCH>0<TOUCH>
+					</defenses>
+
+					<strength>10</strength>
+					<iq>10</iq>
+					<attack_speed>10</attack_speed>
+					<cast_speed>10</cast_speed>
+
+				</stats>
 			</MOUSE>
-		</ACTORS>
+		</creatures>
 
-		<ABSTRACT>
-			<DEPTH_MIN>1</DEPTH_MIN>
-			<DEPTH_MAX>10</DEPTH_MAX>
-			<MONSTER_TYPE>
-				<TYPE>GROUP</TYPE>
-			</MONSTER_TYPE>
-			<HEALTH>25</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>1</WEIGHT>
-			<SPEED>1</SPEED>
-			<STRENGTH>1</STRENGTH>
-			<IQ>1</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>1</ATTACK_SPEED>
-			<CAST_SPEED>1</CAST_SPEED>
-			<FACTION>ENEMY</FACTION>
-		</ABSTRACT>
-
-		<0>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</0>
-
-		<1>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</1>
-
-		<2>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</2>
-
-		<3>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</3>
-
-		<4>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</4>
-
-		<5>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</5>
-
-		<6>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</6>
-
-		<7>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</7>
-
-		<8>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</8>
-
-		<9>
-			<MONSTER>MOUSE</MONSTER>
-			<HEALTH>0</HEALTH>
-			<DEFENSES>
-				<FIRE>0</FIRE>
-				<METAL>0</METAL>
-				<WOOD>0</WOOD>
-				<AIR>0</AIR>
-				<WATER>0</WATER>
-			</DEFENSES>
-			<WEIGHT>0</WEIGHT>
-			<SPEED>0</SPEED>
-			<STRENGTH>0</STRENGTH>
-			<IQ>0</IQ>
-			<SIGHT>10</SIGHT>
-			<ATTACK_SPEED>0</ATTACK_SPEED>
-			<CAST_SPEED>0</CAST_SPEED>
-		</9>
-
+		<abstract>
+			<0>
+				<creature>MOUSE</creature>
+				<calorie_usage>100</calorie_usage>
+			</0>
+			<1>
+				<creature>MOUSE</creature>
+				<calorie_usage>90</calorie_usage>
+			</1>
+			<2>
+				<creature>MOUSE</creature>
+				<calorie_usage>80</calorie_usage>
+			</2>
+			<3>
+				<creature>MOUSE</creature>
+				<calorie_usage>70</calorie_usage>
+			</3>
+			<4>
+				<creature>MOUSE</creature>
+				<calorie_usage>60</calorie_usage>
+			</4>
+			<5>
+				<creature>MOUSE</creature>
+				<calorie_usage>50</calorie_usage>
+			</5>
+			<6>
+				<creature>MOUSE</creature>
+				<calorie_usage>40</calorie_usage>
+			</6>
+			<7>
+				<creature>MOUSE</creature>
+				<calorie_usage>30</calorie_usage>
+			</7>
+			<8>
+				<creature>MOUSE</creature>
+				<calorie_usage>20</calorie_usage>
+			</8>
+			<9>
+				<creature>MOUSE</creature>
+				<calorie_usage>10</calorie_usage>
+			</9>
+		</abstract>
 	</RODENT>
+	
 
-</MONSTERS>
+</monsters>

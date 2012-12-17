@@ -81,6 +81,7 @@ BLOCK STRUCTURE INFO:
 					- dimensions -> The dimensions for generating the mesh. - REQUIRED IF VISIBLE AND TYPE != FILE
 						- number -> The number of dimensions - REQUIRED IF VISIBLE AND TYPE != FILE
 						- d -> The size of the mesh in this dimension. Number of 'd' blocks must equal the 'number' specified. - REQUIRED IF VISIBLE AND TYPE != FILE
+					- scale -> The number the mesh should be scaled by, as a float. (i.e. 0.5 = half the normal size. 2.0 = twice the normal size)
 
 				- texture -> The texture for the model. Will be loaded from data/textures. Will have the .png extensions appended to it. - REQUIRED IF VISIBLE
 
@@ -518,6 +519,7 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
+				<OOD>10</OOD>
 				<monster_type>SINGLE</monster_type>
 			</meta>
 
