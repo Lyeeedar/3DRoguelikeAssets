@@ -1,14 +1,13 @@
 
-<!-- ........................................................................................................... -->
-<!-- ........................................................................................................... -->
-<!-- ..@@@@@@@@@@@@...@@@@@@@@@...@@@......@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
-<!-- ..@@...@@...@@..@@.......@@..@@.@@....@@..@@...............@@.......@@...........@@.......@@..@@........... -->
-<!-- ..@@...@@...@@..@@.......@@..@@...@@..@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
-<!-- ..@@...@@...@@..@@.......@@..@@.....@@@@...........@@......@@.......@@...........@@.@@@................@@.. -->
-<!-- ..@@...@@...@@...@@@@@@@@@...@@.......@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@....@@@@@..@@@@@@@@@@@.. -->
-<!-- ........................................................................................................... -->
-<!-- ........................................................................................................... -->
-
+<!-- ..................................................................................................................................... -->
+<!-- ..................................................................................................................................... -->
+<!-- ...@@@@@@@@@@...@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@.......@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+<!-- ..@@........@@.......@@..........@@.......@@.......@@......@@.......@@.......@@..@@.......@@.......@@......@@...........@@........... -->
+<!-- ..@@@@@@@@@@@@.......@@..........@@.......@@@@@@@@@@@......@@.......@@@@@@@@@@...@@.......@@.......@@......@@@@@@@@@@@..@@@@@@@@@@@.. -->
+<!-- ..@@........@@.......@@..........@@.......@@.@@@...........@@.......@@.......@@..@@.......@@.......@@......@@....................@@.. -->
+<!-- ..@@........@@.......@@..........@@.......@@....@@@@@..@@@@@@@@@@@..@@@@@@@@@@@...@@@@@@@@@........@@......@@@@@@@@@@@..@@@@@@@@@@@.. -->
+<!-- ..................................................................................................................................... -->
+<!-- ..................................................................................................................................... -->
 
 <!-- 
 	This is the list of different attributes a creature can be assigned in the evolver. Consists of the subgroups:
@@ -25,11 +24,6 @@
 	<MIND>
 
 	</MIND>
-
-	<!-- The creatures ability to see. Affects the stimuli entered into the AI. Does not affect drops. -->
-	<VISUAL>
-
-	</VISUAL>
 
 	<!-- The skin of the creature. Affects its health, defenses and weight. Also affects drops. -->
 	<SKIN>
@@ -49,15 +43,13 @@
 
 			<soft_fur>
 				<calories>0</calories>
-				<description>
-					<overall>Some soft fur. Does not provide any protection.</overall>
-				</description>
+				<description>It's covered in soft fur that doesn't look very protective. </description>
 
 				<stats>
-					<WEIGHT>0</WEIGHT>
+					<weight>0</weight>
 
-					<HEALTH>0</HEALTH>
-					<ELE_DEFENSES>
+					<health>0</health>
+					<ele_defenses>
 						<FIRE>0</FIRE>
 						<WATER>0</WATER>
 						<AIR>0</AIR>
@@ -65,13 +57,13 @@
 						<METAL>0</METAL>
 						<AETHER>0</AETHER>
 						<VOID>0</VOID>
-					</ELE_DEFENSES>
-					<DEFENSES>
+					</ele_defenses>
+					<defenses>
 						<PIERCE>0</PIERCE>
 						<IMPACT>0</IMPACT>
 						<TOUCH>0<TOUCH>
-					</DEFENSES>
-					<STRENGTH>0</STRENGTH>
+					</defenses>
+					<strength>0</strength>
 
 				</stats>
 			</soft_fur>
@@ -82,15 +74,13 @@
 
 			<soft_leather>
 				<calories>0</calories>
-				<description>
-					<overall>Some soft, leathery skin. Does not provide any protection.</overall>
-				</description>
+				<description>It has soft leathery skin that doesn't look very tough. </description>
 
 				<stats>
-					<WEIGHT>0</WEIGHT>
+					<weight>0</weight>
 
-					<HEALTH>0</HEALTH>
-					<ELE_DEFENSES>
+					<health>0</health>
+					<ele_defenses>
 						<FIRE>0</FIRE>
 						<WATER>0</WATER>
 						<AIR>0</AIR>
@@ -98,13 +88,13 @@
 						<METAL>0</METAL>
 						<AETHER>0</AETHER>
 						<VOID>0</VOID>
-					</ELE_DEFENSES>
-					<DEFENSES>
+					</ele_defenses>
+					<defenses>
 						<PIERCE>0</PIERCE>
 						<IMPACT>0</IMPACT>
 						<TOUCH>0<TOUCH>
-					</DEFENSES>
-					<STRENGTH>0</STRENGTH>
+					</defenses>
+					<strength>0</strength>
 
 				</stats>
 			</soft_leather>
@@ -138,15 +128,15 @@
 				<calories>0</calories>
 
 				<stats>
-					<WEIGHT>0</WEIGHT>
+					<weight>0</weight>
 
-					<HEALTH>0</HEALTH>
+					<health>0</health>
 
-					<DEFENSES>
+					<defenses>
 						<PIERCE>0</PIERCE>
 						<IMPACT>0</IMPACT>
 						<TOUCH>0<TOUCH>
-					</DEFENSES>
+					</defenses>
 
 				</stats>
 			</basic_bones>
@@ -160,10 +150,8 @@
 			<basic_muscles>
 				<calories>0</calories>
 				<stats>
-					<WEIGHT>0</WEIGHT>
-
-					<STRENGTH>0</STRENGTH>
-
+					<weight>0</weight>
+					<strength>0</strength>
 				</stats>
 			</basic_muscles>
 		</normal>
@@ -177,8 +165,8 @@
 				<calories>0</calories>
 				<stats>
 					<type>teeth</type>
-					<STRENGTH>0</STRENGTH>
-
+					<strength>0</strength>
+					<description>A row of tiny teeth glimmer ominously from within its mouth. </description>
 				</stats>
 			</weak_bite>
 		</teeth>
@@ -207,6 +195,21 @@
 </attributes>
 
 
+
+
+
+
+<!-- ........................................................................................................... -->
+<!-- ........................................................................................................... -->
+<!-- ..@@@@@@@@@@@@...@@@@@@@@@...@@@......@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+<!-- ..@@...@@...@@..@@.......@@..@@.@@....@@..@@...............@@.......@@...........@@.......@@..@@........... -->
+<!-- ..@@...@@...@@..@@.......@@..@@...@@..@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+<!-- ..@@...@@...@@..@@.......@@..@@.....@@@@...........@@......@@.......@@...........@@.@@@................@@.. -->
+<!-- ..@@...@@...@@...@@@@@@@@@...@@.......@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@....@@@@@..@@@@@@@@@@@.. -->
+<!-- ........................................................................................................... -->
+<!-- ........................................................................................................... -->
+
+
 <!-- This is the list of different monster types in the game. A monster type consists of definitions of creatures, and a list of where the creature appears in the difficulty heirachy (0-9) -->
 <monsters>
 
@@ -221,7 +224,12 @@
 		<creatures>
 			<MOUSE>
 				<visual>
-					<description>A mouse. It seems hungry.</description>
+					<description>
+						<text>A mouse. It seems hungry. </text>
+						<attribute>SKIN</attribute>
+						<attribute>ATTACK</attribute>
+						<text>It looks pretty vicious, despite being so puny.</text>
+					</description>
 					<model>
 						<type>file</type>
 						<name>modelE</name>
@@ -243,11 +251,6 @@
 						<scaling>3.0</scaling>
 						<type>group</type>
 					</MIND>
-
-					<VISUAL>
-						<scaling>1.0</scaling>
-						<type>eyes</type>
-					</VISUAL>
 
 					<SKIN>
 						<scaling>1.0</scaling>
