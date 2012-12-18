@@ -45,27 +45,25 @@
 				<calories>0</calories>
 				<description>It's covered in soft fur that doesn't look very protective. </description>
 
-				<stats>
-					<weight>0</weight>
+				<weight>0</weight>
 
-					<health>0</health>
-					<ele_defenses>
-						<FIRE>0</FIRE>
-						<WATER>0</WATER>
-						<AIR>0</AIR>
-						<WOOD>0</WOOD>
-						<METAL>0</METAL>
-						<AETHER>0</AETHER>
-						<VOID>0</VOID>
-					</ele_defenses>
-					<defenses>
-						<PIERCE>0</PIERCE>
-						<IMPACT>0</IMPACT>
-						<TOUCH>0<TOUCH>
-					</defenses>
-					<strength>0</strength>
+				<health>0</health>
+				<ele_defenses>
+					<FIRE>0</FIRE>
+					<WATER>0</WATER>
+					<AIR>0</AIR>
+					<WOOD>0</WOOD>
+					<METAL>0</METAL>
+					<AETHER>0</AETHER>
+					<VOID>0</VOID>
+				</ele_defenses>
+				<defenses>
+					<PIERCE>0</PIERCE>
+					<IMPACT>0</IMPACT>
+					<TOUCH>0<TOUCH>
+				</defenses>
+				<strength>0</strength>
 
-				</stats>
 			</soft_fur>
 
 		</fur>
@@ -76,27 +74,25 @@
 				<calories>0</calories>
 				<description>It has soft leathery skin that doesn't look very tough. </description>
 
-				<stats>
-					<weight>0</weight>
+				<weight>0</weight>
 
-					<health>0</health>
-					<ele_defenses>
-						<FIRE>0</FIRE>
-						<WATER>0</WATER>
-						<AIR>0</AIR>
-						<WOOD>0</WOOD>
-						<METAL>0</METAL>
-						<AETHER>0</AETHER>
-						<VOID>0</VOID>
-					</ele_defenses>
-					<defenses>
-						<PIERCE>0</PIERCE>
-						<IMPACT>0</IMPACT>
-						<TOUCH>0<TOUCH>
-					</defenses>
-					<strength>0</strength>
+				<health>0</health>
+				<ele_defenses>
+					<FIRE>0</FIRE>
+					<WATER>0</WATER>
+					<AIR>0</AIR>
+					<WOOD>0</WOOD>
+					<METAL>0</METAL>
+					<AETHER>0</AETHER>
+					<VOID>0</VOID>
+				</ele_defenses>
+				<defenses>
+					<PIERCE>0</PIERCE>
+					<IMPACT>0</IMPACT>
+					<TOUCH>0<TOUCH>
+				</defenses>
+				<strength>0</strength>
 
-				</stats>
 			</soft_leather>
 
 		</leather>
@@ -127,18 +123,16 @@
 
 				<calories>0</calories>
 
-				<stats>
-					<weight>0</weight>
+				<weight>0</weight>
 
-					<health>0</health>
+				<health>0</health>
 
-					<defenses>
-						<PIERCE>0</PIERCE>
-						<IMPACT>0</IMPACT>
-						<TOUCH>0<TOUCH>
-					</defenses>
+				<defenses>
+					<PIERCE>0</PIERCE>
+					<IMPACT>0</IMPACT>
+					<TOUCH>0<TOUCH>
+				</defenses>
 
-				</stats>
 			</basic_bones>
 		</normal>
 	</BONES>
@@ -148,11 +142,11 @@
 
 		<normal>
 			<basic_muscles>
+
 				<calories>0</calories>
-				<stats>
-					<weight>0</weight>
-					<strength>0</strength>
-				</stats>
+				<weight>0</weight>
+				<strength>0</strength>
+
 			</basic_muscles>
 		</normal>
 
@@ -163,11 +157,12 @@
 		<teeth>
 			<weak_bite>
 				<calories>0</calories>
-				<stats>
-					<type>teeth</type>
-					<strength>0</strength>
-					<description>A row of tiny teeth glimmer ominously from within its mouth. </description>
-				</stats>
+
+				<type>teeth</type>
+				<weight>0</weight>
+				<strength>0</strength>
+				<description>A row of tiny teeth glimmer ominously from within its mouth. </description>
+
 			</weak_bite>
 		</teeth>
 
