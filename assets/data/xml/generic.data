@@ -100,21 +100,24 @@ BLOCK STRUCTURE INFO:
 			<char>l</char>
 			<type>FIRE_CAMP</type>
 			<visible>false</visible>
-			<description>A fire. It's hot.</description>
+			<short_description>A fire. It's hot.</short_description>
+			<long_description>A fire. It's hot. It's very hot. It's a fire so duh...</long_description>
 		</symbol>
 
 		<symbol>
 			<char>t</char>
 			<type>FIRE_TORCH</type>
 			<visible>false</visible>
-			<description>A blazing torch. It lights stuff up.</description>
+			<short_description>A blazing torch. It lights stuff up.</short_description>
+			<long_description>A blazing torch. It lights stuff up. You can't pick it up though. It's magically fixed. lol.</long_description>
 		</symbol>
 
 		<symbol>
 			<char>+</char>
 			<type>DOOR_UNLOCKED</type>
 			<visible>true</visible>
-			<description>A door. It's unlocked. This was placed by the room placer.</description>
+			<short_description>A door. It's unlocked. This was placed by the room placer.</short_description>
+			<long_description>A door. It's unlocked. This was placed by the room placer. It can open, maybe.</long_description>
 			<model>
 				<type>cube</type>
 				<dimensions>
@@ -194,7 +197,7 @@ BLOCK STRUCTURE INFO:
 
 		<symbol>
 			<char>B</char>
-			<type>SPAWNER_BOSS</type>
+			<type>SPAWNER_B</type>
 			<visible>false</visible>
 		</symbol>
 
@@ -232,7 +235,8 @@ BLOCK STRUCTURE INFO:
 							<contents>generic</contents>
 						</data>
 					</meta>
-					<description>A Ladder. It leads up.</description>
+					<short_description>A Ladder. It leads up.</short_description>
+					<long_description>A Ladder. It leads up. You can climb it.</long_description>
 					<model>
 						<type>cube</type>
 						<dimensions>
@@ -271,8 +275,15 @@ BLOCK STRUCTURE INFO:
 				<symbol>
 					<char>L</char>
 					<type>STAIR_DOWN</type>
+					<meta>
+						<data>
+							<name>level</name>
+							<contents>generic</contents>
+						</data>
+					</meta>
 					<visible>true</visible>
-					<description>A Ladder. It leads down.</description>
+					<short_description>A Ladder. It leads down.</short_description>
+					<long_description>A Ladder. It leads down. You can climb it.</long_description>
 					<model>
 						<type>cube</type>
 						<dimensions>
@@ -355,7 +366,8 @@ BLOCK STRUCTURE INFO:
 					<char>w</char>
 					<type>STATIC</type>
 					<visible>true</visible>
-					<description>A workbench covered in various sciencey stuffs. Strange stains and funny smells emanate from it.</description>
+					<short_description>A workbench covered in various sciencey stuffs.</short_description>
+					<long_description>A workbench covered in various sciencey stuffs. Strange stains and funny smells emanate from it.</long_description>
 					<model>
 						<type>cube</type>
 						<dimensions>
@@ -526,9 +538,25 @@ BLOCK STRUCTURE INFO:
 			<definitions>
 				<symbol>
 					<char>i</char>
-					<type>SIGN</type>
-					<visible>false</visible>
-					<description>Beware.</description>
+					<type>STATIC</type>
+					<visible>true</visible>
+					<short_description>The sign says "Beware!"</short_description>
+					<long_description>The sign says "Beware!". It's written in some strange red substance, that has slightly run.</long_description>
+					<model>
+						<type>cube</type>
+						<dimensions>
+							<number>3</number>
+							<d1>5.0</d1>
+							<d2>5.0</d2>
+							<d3>5.0</d3>
+						</dimensions>
+					</model>
+					<texture>texw</texture>
+					<colour>
+						<red>1.0</red>
+						<green>1.0</green>
+						<blue>1.0</blue>
+					</colour>
 				</symbol>
 			</definitions>
 
@@ -603,7 +631,8 @@ BLOCK STRUCTURE INFO:
 					<char>s</char>
 					<type>STATIC</type>
 					<visible>true</visible>
-					<description>A small wooden seat.</description>
+					<short_description>A small wooden seat.</short_description>
+					<long_description>A small wooden seat. It can be sat on, but not by you.</long_description>
 					<model>
 						<type>cube</type>
 						<dimensions>
@@ -674,11 +703,12 @@ BLOCK STRUCTURE INFO:
 					<char>C</char>
 					<type>STATIC</type>
 					<visible>true</visible>
-					<description>Some rotting remains. They look vaguely human but are too far gone to be properly recognisable.</description>
+					<short_description>Some rotting remains.</short_description>
+					<long_description>Some rotting remains. They look vaguely human but are too far gone to be properly recognisable.</long_description>
 
 					<model>
 						<type>file</type>
-						<name>model@_dead</name>
+						<name>model@</name>
 					</model>
 
 					<texture>blank</texture>

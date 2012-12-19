@@ -47,19 +47,23 @@
 		<description>
 			<char>
 				<char>+</char>
-				<description>An unlocked door. This was placed by the Level Generator.</description>
+				<short_description>An unlocked door. This was placed by the Level Generator.</short_description>
+				<long_description>An unlocked door. This was placed by the Level Generator. This is a longer description. </long_description>
 			</char>
 			<char>
 				<char>#</char>
-				<description>A Wall</description>
+				<short_description>A Wall.</short_description>
+				<long_description>A Wall. The wall looks hard.</long_description>
 			</char>
 			<char>
 				<char>.</char>
-				<description>Some Floor</description>
+				<short_description>Some Floor.</short_description>
+				<long_description>Some Floor. Its flat.</long_description>
 			</char>
 			<char>
 				<char>R</char>
-				<description>The ceiling. Sure would hurt if that fell on your head.</description>
+				<short_description>The ceiling. Sure would hurt if that fell on your head.</short_description>
+				<long_description>The ceiling. Sure would hurt if that fell on your head. It's high!</long_description>
 			</char>
 		</description>
 
@@ -149,27 +153,31 @@
 
 		<generator>Static</generator>
 
-		<width>102</width>
-		<height>102</height>
+		<width>17</width>
+		<height>12</height>
 
 		<roof>40</roof>
 
 		<description>
 			<char>
 				<char>+</char>
-				<description>An unlocked door. This was placed by the Level Generator.</description>
+				<short_description>An unlocked door. This was placed by the Level Generator.</short_description>
+				<long_description>An unlocked door. This was placed by the Level Generator. This is a longer description. </long_description>
 			</char>
 			<char>
 				<char>#</char>
-				<description>A Wall</description>
+				<short_description>A Wall.</short_description>
+				<long_description>A Wall. The wall looks hard.</long_description>
 			</char>
 			<char>
 				<char>.</char>
-				<description>Some Floor</description>
+				<short_description>Some Floor.</short_description>
+				<long_description>Some Floor. Its flat.</long_description>
 			</char>
 			<char>
 				<char>R</char>
-				<description>The ceiling. Sure would hurt if that fell on your head.</description>
+				<short_description>The ceiling. Sure would hurt if that fell on your head.</short_description>
+				<long_description>The ceiling. Sure would hurt if that fell on your head. It's high!</long_description>
 			</char>
 		</description>
 
