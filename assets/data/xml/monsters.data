@@ -1,275 +1,62 @@
+<?xml version="1.0"?>
 
-<!-- ..................................................................................................................................... -->
-<!-- ..................................................................................................................................... -->
-<!-- ...@@@@@@@@@@...@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@.......@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
-<!-- ..@@........@@.......@@..........@@.......@@.......@@......@@.......@@.......@@..@@.......@@.......@@......@@...........@@........... -->
-<!-- ..@@@@@@@@@@@@.......@@..........@@.......@@@@@@@@@@@......@@.......@@@@@@@@@@...@@.......@@.......@@......@@@@@@@@@@@..@@@@@@@@@@@.. -->
-<!-- ..@@........@@.......@@..........@@.......@@.@@@...........@@.......@@.......@@..@@.......@@.......@@......@@....................@@.. -->
-<!-- ..@@........@@.......@@..........@@.......@@....@@@@@..@@@@@@@@@@@..@@@@@@@@@@@...@@@@@@@@@........@@......@@@@@@@@@@@..@@@@@@@@@@@.. -->
-<!-- ..................................................................................................................................... -->
-<!-- ..................................................................................................................................... -->
+<data>
+	<!-- ..................................................................................................................................... -->
+	<!-- ..................................................................................................................................... -->
+	<!-- ...@@@@@@@@@@...@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@.......@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+	<!-- ..@@........@@.......@@..........@@.......@@.......@@......@@.......@@.......@@..@@.......@@.......@@......@@...........@@........... -->
+	<!-- ..@@@@@@@@@@@@.......@@..........@@.......@@@@@@@@@@@......@@.......@@@@@@@@@@...@@.......@@.......@@......@@@@@@@@@@@..@@@@@@@@@@@.. -->
+	<!-- ..@@........@@.......@@..........@@.......@@.@@@...........@@.......@@.......@@..@@.......@@.......@@......@@....................@@.. -->
+	<!-- ..@@........@@.......@@..........@@.......@@....@@@@@..@@@@@@@@@@@..@@@@@@@@@@@...@@@@@@@@@........@@......@@@@@@@@@@@..@@@@@@@@@@@.. -->
+	<!-- ..................................................................................................................................... -->
+	<!-- ..................................................................................................................................... -->
 
-<!-- 
-	This is the list of different attributes a creature can be assigned in the evolver. Consists of the subgroups:
-		- MIND
-		- VISUAL
-		- SKIN
-		- BONES
-		- MUSCLES
-		- HANDS
--->
-<attributes>
+	<!-- 
+		This is the list of different attributes a creature can be assigned in the evolver. Consists of the subgroups:
+			- MIND
+			- VISUAL
+			- SKIN
+			- BONES
+			- MUSCLES
+			- HANDS
+	-->
+	<attributes>
 
-	<!-- The brain of the creature. Affects its eventual AI (modified by its IQ). Does not affect drops. -->
-	<MIND>
+		<!-- The brain of the creature. Affects its eventual AI. Does not affect drops. -->
+		<MIND>
 
-	</MIND>
+			<group>
+				<violenceNfleeNfeedNguard>
+					<AI>VFFG</AI>
+				</violenceNfleeNfeedNguard>
 
-	<!-- The skin of the creature. Affects its health, defenses and weight. Also affects drops. -->
-	<SKIN>
-		<exoskeleton>
+			</group>
 
-		</exoskeleton>
+		</MIND>
 
-		<feathers>
+		<!-- The skin of the creature. Affects its health, defenses and weight. Also affects drops. -->
+		<SKIN>
+			<exoskeleton>
 
-		</feathers>
+			</exoskeleton>
 
-		<scales>
+			<feathers>
 
-		</scales>
+			</feathers>
 
-		<fur>
+			<scales>
 
-			<soft_fur>
-				<calories>0</calories>
-				<description>It's covered in soft fur that doesn't look very protective. </description>
+			</scales>
 
-				<weight>0</weight>
+			<fur>
 
-				<health>0</health>
-				<ele_defenses>
-					<FIRE>0</FIRE>
-					<WATER>0</WATER>
-					<AIR>0</AIR>
-					<WOOD>0</WOOD>
-					<METAL>0</METAL>
-					<AETHER>0</AETHER>
-					<VOID>0</VOID>
-				</ele_defenses>
-				<defenses>
-					<PIERCE>0</PIERCE>
-					<IMPACT>0</IMPACT>
-					<TOUCH>0<TOUCH>
-				</defenses>
-				<strength>0</strength>
+				<soft_fur>
+					<calories>0</calories>
+					<description>It's covered in soft fur that doesn't look very protective. </description>
 
-			</soft_fur>
+					<weight>0</weight>
 
-		</fur>
-
-		<leather>
-
-			<soft_leather>
-				<calories>0</calories>
-				<description>It has soft leathery skin that doesn't look very tough. </description>
-
-				<weight>0</weight>
-
-				<health>0</health>
-				<ele_defenses>
-					<FIRE>0</FIRE>
-					<WATER>0</WATER>
-					<AIR>0</AIR>
-					<WOOD>0</WOOD>
-					<METAL>0</METAL>
-					<AETHER>0</AETHER>
-					<VOID>0</VOID>
-				</ele_defenses>
-				<defenses>
-					<PIERCE>0</PIERCE>
-					<IMPACT>0</IMPACT>
-					<TOUCH>0<TOUCH>
-				</defenses>
-				<strength>0</strength>
-
-			</soft_leather>
-
-		</leather>
-
-		<clothing>
-
-		</clothing>
-
-		<armour_primitive>
-
-		</armour_primitive>
-
-		<armour_magical>
-
-		</armour_magical>
-
-		<armour_mechanical>
-
-		</armour_mechanical>
-
-	</SKIN>
-
-	<!-- The bones of the creature. Affects health, weight and damage defense. Affects drops. -->
-	<BONES>
-
-		<normal>
-			<basic_bones>
-
-				<calories>0</calories>
-
-				<weight>0</weight>
-
-				<health>0</health>
-
-				<defenses>
-					<PIERCE>0</PIERCE>
-					<IMPACT>0</IMPACT>
-					<TOUCH>0<TOUCH>
-				</defenses>
-
-			</basic_bones>
-		</normal>
-	</BONES>
-
-	<!-- The muscles of the creature. Affects strength (damage) and weight. Does not affect drops. -->
-	<MUSCLES>
-
-		<normal>
-			<basic_muscles>
-
-				<calories>0</calories>
-				<weight>0</weight>
-				<strength>0</strength>
-
-			</basic_muscles>
-		</normal>
-
-	</MUSCLES>
-
-	<!-- The attacks of the creature. Affects drops. -->
-	<ATTACK>
-		<teeth>
-			<weak_bite>
-				<calories>0</calories>
-
-				<type>teeth</type>
-				<weight>0</weight>
-				<strength>0</strength>
-				<description>A row of tiny teeth glimmer ominously from within its mouth. </description>
-
-			</weak_bite>
-		</teeth>
-
-		<claws>
-
-		</claws>
-
-		<tail>
-		</tail>
-
-		<weapon_primitive>
-
-		</weapon_primitive>
-
-		<weapon_magical>
-
-		</weapon_magical>
-
-		<weapon_mechanical>
-
-		</weapon_mechanical>
-
-	</ATTACK>
-
-</attributes>
-
-
-
-
-
-
-<!-- ........................................................................................................... -->
-<!-- ........................................................................................................... -->
-<!-- ..@@@@@@@@@@@@...@@@@@@@@@...@@@......@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
-<!-- ..@@...@@...@@..@@.......@@..@@.@@....@@..@@...............@@.......@@...........@@.......@@..@@........... -->
-<!-- ..@@...@@...@@..@@.......@@..@@...@@..@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
-<!-- ..@@...@@...@@..@@.......@@..@@.....@@@@...........@@......@@.......@@...........@@.@@@................@@.. -->
-<!-- ..@@...@@...@@...@@@@@@@@@...@@.......@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@....@@@@@..@@@@@@@@@@@.. -->
-<!-- ........................................................................................................... -->
-<!-- ........................................................................................................... -->
-
-
-<!-- This is the list of different monster types in the game. A monster type consists of definitions of creatures, and a list of where the creature appears in the difficulty heirachy (0-9) -->
-<monsters>
-
-	<!-- The Rodent type. Rats and suchlike -->
-	<RODENT>
-
-		<depth_min>1</depth_min>
-		<depth_max>10</depth_max>
-
-		<monster_type>group</monster_type>
-
-		<creatures>
-			<MOUSE>
-				<visual>
-					<description>
-						<text>A mouse. It seems hungry. </text>
-						<attribute>SKIN</attribute>
-						<attribute>ATTACK</attribute>
-						<text>It looks pretty vicious, despite being so puny.</text>
-					</description>
-					<model>
-						<type>file</type>
-						<name>modelE</name>
-						<scale>0.2</scale>
-					</model>
-					<texture>blank</texture>
-					<colour>
-						<red>0.8</red>
-						<green>0.1</green>
-						<blue>0.1</blue>
-					</colour>
-				</visual>
-
-				<stats>
-
-					<base_calories>50</base_calories>
-
-					<MIND>
-						<scaling>3.0</scaling>
-						<type>group</type>
-					</MIND>
-
-					<SKIN>
-						<scaling>1.0</scaling>
-						<type>fur</type>
-					</SKIN>
-
-					<BONES>
-						<scaling>1.0</scaling>
-						<type>normal</type>
-					</BONES>
-
-					<MUSCLES>
-						<scaling>2.0</scaling>
-						<type>normal</type>
-					</MUSCLES>
-
-					<ATTACK>
-						<scaling>1.0</scaling>
-						<type>teeth</type>
-					</ATTACK>
-
-					<weight>10</weight>
-					<health>10</health>
-
+					<health>0</health>
 					<ele_defenses>
 						<FIRE>0</FIRE>
 						<WATER>0</WATER>
@@ -282,61 +69,373 @@
 					<defenses>
 						<PIERCE>0</PIERCE>
 						<IMPACT>0</IMPACT>
-						<TOUCH>0<TOUCH>
+						<TOUCH>0</TOUCH>
+					</defenses>
+					<strength>0</strength>
+
+				</soft_fur>
+
+				<thick_fur>
+					<calories>5</calories>
+					<description>It's covered in thick fur. </description>
+
+					<weight>2</weight>
+
+					<health>10</health>
+					<ele_defenses>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>0</AETHER>
+						<VOID>0</VOID>
+					</ele_defenses>
+					<defenses>
+						<PIERCE>5</PIERCE>
+						<IMPACT>0</IMPACT>
+						<TOUCH>0</TOUCH>
+					</defenses>
+					<strength>0</strength>
+
+				</thick_fur>
+
+			</fur>
+
+			<leather>
+
+				<soft_leather>
+					<calories>0</calories>
+					<description>It has soft leathery skin that doesn't look very tough. </description>
+
+					<weight>0</weight>
+
+					<health>0</health>
+					<ele_defenses>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>0</AETHER>
+						<VOID>0</VOID>
+					</ele_defenses>
+					<defenses>
+						<PIERCE>0</PIERCE>
+						<IMPACT>0</IMPACT>
+						<TOUCH>0</TOUCH>
+					</defenses>
+					<strength>0</strength>
+
+				</soft_leather>
+
+			</leather>
+
+			<clothing>
+
+			</clothing>
+
+			<armour_primitive>
+
+			</armour_primitive>
+
+			<armour_magical>
+
+			</armour_magical>
+
+			<armour_mechanical>
+
+			</armour_mechanical>
+
+		</SKIN>
+
+		<!-- The bones of the creature. Affects health, weight and damage defense. Affects drops. -->
+		<BONES>
+
+			<normal>
+				<basic_bones>
+
+					<calories>0</calories>
+
+					<weight>0</weight>
+
+					<health>0</health>
+
+					<defenses>
+						<PIERCE>0</PIERCE>
+						<IMPACT>0</IMPACT>
+						<TOUCH>0</TOUCH>
 					</defenses>
 
+				</basic_bones>
+
+				<tough_bones>
+
+					<calories>10</calories>
+
+					<weight>10</weight>
+
+					<health>10</health>
+
+					<defenses>
+						<PIERCE>0</PIERCE>
+						<IMPACT>10</IMPACT>
+						<TOUCH>0</TOUCH>
+					</defenses>
+
+				</tough_bones>
+			</normal>
+		</BONES>
+
+		<!-- The muscles of the creature. Affects strength (damage) and weight. Does not affect drops. -->
+		<MUSCLES>
+
+			<normal>
+				<basic_muscles>
+
+					<calories>0</calories>
+					<weight>0</weight>
+					<strength>0</strength>
+
+				</basic_muscles>
+
+				<trained_muscles>
+
+					<calories>10</calories>
+					<weight>5</weight>
 					<strength>10</strength>
-					<iq>10</iq>
+
+				</trained_muscles>
+			</normal>
+
+		</MUSCLES>
+
+		<!-- The attacks of the creature. Affects drops. -->
+		<ATTACK>
+			<teeth>
+				<weak_bite>
+					<calories>0</calories>
+
+					<pierce>40</pierce>
+					<impact>60</impact>
+					<touch>0</touch>
+
+					<element>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>100</AETHER>
+						<VOID>0</VOID>
+					</element>
+
+					<weight>0</weight>
+					<strength>0</strength>
+					<description>A row of tiny teeth glimmer ominously from within its mouth. </description>
 					<attack_speed>10</attack_speed>
-					<cast_speed>10</cast_speed>
+					<attack_dist_min>5</attack_dist_min>
+					<attack_dist_max>10</attack_dist_max>
 
-				</stats>
-			</MOUSE>
-		</creatures>
+				</weak_bite>
 
-		<abstract>
-			<0>
-				<creature>MOUSE</creature>
-				<calorie_usage>100</calorie_usage>
-			</0>
-			<1>
-				<creature>MOUSE</creature>
-				<calorie_usage>90</calorie_usage>
-			</1>
-			<2>
-				<creature>MOUSE</creature>
-				<calorie_usage>80</calorie_usage>
-			</2>
-			<3>
-				<creature>MOUSE</creature>
-				<calorie_usage>70</calorie_usage>
-			</3>
-			<4>
-				<creature>MOUSE</creature>
-				<calorie_usage>60</calorie_usage>
-			</4>
-			<5>
-				<creature>MOUSE</creature>
-				<calorie_usage>50</calorie_usage>
-			</5>
-			<6>
-				<creature>MOUSE</creature>
-				<calorie_usage>40</calorie_usage>
-			</6>
-			<7>
-				<creature>MOUSE</creature>
-				<calorie_usage>30</calorie_usage>
-			</7>
-			<8>
-				<creature>MOUSE</creature>
-				<calorie_usage>20</calorie_usage>
-			</8>
-			<9>
-				<creature>MOUSE</creature>
-				<calorie_usage>10</calorie_usage>
-			</9>
-		</abstract>
-	</RODENT>
-	
+				<strong_bite>
+					<calories>10</calories>
 
-</monsters>
+					<pierce>40</pierce>
+					<impact>60</impact>
+					<touch>0</touch>
+
+					<element>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>100</AETHER>
+						<VOID>0</VOID>
+					</element>
+
+					<weight>0</weight>
+					<strength>10</strength>
+					<description>A row of teeth glimmer ominously from within its mouth. </description>
+					<attack_speed>10</attack_speed>
+					<attack_dist_min>5</attack_dist_min>
+					<attack_dist_max>10</attack_dist_max>
+
+				</strong_bite>
+			</teeth>
+
+			<claws>
+
+			</claws>
+
+			<tail>
+			</tail>
+
+			<weapon_primitive>
+
+			</weapon_primitive>
+
+			<weapon_magical>
+
+			</weapon_magical>
+
+			<weapon_mechanical>
+
+			</weapon_mechanical>
+
+		</ATTACK>
+
+	</attributes>
+
+
+
+
+
+
+	<!-- ........................................................................................................... -->
+	<!-- ........................................................................................................... -->
+	<!-- ..@@@@@@@@@@@@...@@@@@@@@@...@@@......@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+	<!-- ..@@...@@...@@..@@.......@@..@@.@@....@@..@@...............@@.......@@...........@@.......@@..@@........... -->
+	<!-- ..@@...@@...@@..@@.......@@..@@...@@..@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@@@@@@@@@@..@@@@@@@@@@@.. -->
+	<!-- ..@@...@@...@@..@@.......@@..@@.....@@@@...........@@......@@.......@@...........@@.@@@................@@.. -->
+	<!-- ..@@...@@...@@...@@@@@@@@@...@@.......@@..@@@@@@@@@@@......@@.......@@@@@@@@@@@..@@....@@@@@..@@@@@@@@@@@.. -->
+	<!-- ........................................................................................................... -->
+	<!-- ........................................................................................................... -->
+
+
+	<!-- This is the list of different monster types in the game. A monster type consists of definitions of creatures, and a list of where the creature appears in the difficulty heirachy (0-9) -->
+	<monsters>
+
+		<!-- The Rodent type. Rats and suchlike -->
+		<RODENT>
+
+			<depth_min>1</depth_min>
+			<depth_max>10</depth_max>
+
+			<monster_type>group</monster_type>
+
+			<creatures>
+				<MOUSE>
+					<visual>
+						<description>
+							<text>A mouse. It seems hungry. </text>
+							<attribute>SKIN</attribute>
+							<attribute>ATTACK</attribute>
+							<text>It looks pretty vicious, despite being so puny.</text>
+						</description>
+						<model>
+							<type>file</type>
+							<name>modelE</name>
+							<scale>0.2</scale>
+						</model>
+						<texture>blank</texture>
+						<colour>
+							<red>0.8</red>
+							<green>0.1</green>
+							<blue>0.1</blue>
+						</colour>
+					</visual>
+
+					<stats>
+
+						<base_calories>50</base_calories>
+
+						<MIND>
+							<scaling>3.0</scaling>
+							<type>group</type>
+						</MIND>
+
+						<SKIN>
+							<scaling>1.0</scaling>
+							<type>fur</type>
+						</SKIN>
+
+						<BONES>
+							<scaling>1.0</scaling>
+							<type>normal</type>
+						</BONES>
+
+						<MUSCLES>
+							<scaling>2.0</scaling>
+							<type>normal</type>
+						</MUSCLES>
+
+						<ATTACK_RIGHT>
+							<scaling>1.0</scaling>
+							<type>teeth</type>
+						</ATTACK_RIGHT>
+
+						<weight>10</weight>
+						<health>10</health>
+
+						<ele_defenses>
+							<FIRE>0</FIRE>
+							<WATER>0</WATER>
+							<AIR>0</AIR>
+							<WOOD>0</WOOD>
+							<METAL>0</METAL>
+							<AETHER>0</AETHER>
+							<VOID>0</VOID>
+						</ele_defenses>
+						<defenses>
+							<PIERCE>0</PIERCE>
+							<IMPACT>0</IMPACT>
+							<TOUCH>0</TOUCH>
+						</defenses>
+
+						<strength>10</strength>
+
+					</stats>
+				</MOUSE>
+			</creatures>
+
+			<abstract>
+				<difficulty_0>
+					<creature>MOUSE</creature>
+					<calorie_usage>100</calorie_usage>
+				</difficulty_0>
+				<difficulty_1>
+					<creature>MOUSE</creature>
+					<calorie_usage>90</calorie_usage>
+				</difficulty_1>
+				<difficulty_2>
+					<creature>MOUSE</creature>
+					<calorie_usage>80</calorie_usage>
+				</difficulty_2>
+				<difficulty_3>
+					<creature>MOUSE</creature>
+					<calorie_usage>70</calorie_usage>
+				</difficulty_3>
+				<difficulty_4>
+					<creature>MOUSE</creature>
+					<calorie_usage>60</calorie_usage>
+				</difficulty_4>
+				<difficulty_5>
+					<creature>MOUSE</creature>
+					<calorie_usage>50</calorie_usage>
+				</difficulty_5>
+				<difficulty_6>
+					<creature>MOUSE</creature>
+					<calorie_usage>40</calorie_usage>
+				</difficulty_6>
+				<difficulty_7>
+					<creature>MOUSE</creature>
+					<calorie_usage>30</calorie_usage>
+				</difficulty_7>
+				<difficulty_8>
+					<creature>MOUSE</creature>
+					<calorie_usage>20</calorie_usage>
+				</difficulty_8>
+				<difficulty_9>
+					<creature>MOUSE</creature>
+					<calorie_usage>10</calorie_usage>
+				</difficulty_9>
+			</abstract>
+		</RODENT>
+		
+
+	</monsters>
+
+</data>
