@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<!-- 
+
+	The list of recipes in the game. These are abstract layouts for creating items.
+
+	A recipe consists of:
+		TYPE -- The type of item the recipe creates, e.g. weapon, armour_head, armour_body etc
+		COMPONENTS -- The components required by the recipe. Consists of:
+						- List of components, titled by letters. Consist of:
+							- Name -- The name of the component (used in the visual recipe)
+							- Amount -- The amount of the component required
+							- !OPTIONAL! List of types of item this component is restricted to.
+		VISUAL -- The grid of components, for visually displaying the recipe. Consists of:
+						- Width -- The width of the grid
+						- Height -- The height of the grid
+						- Grid -- The grid. Split into rows. Components are referenced by their titling character.
+		ITEM -- The item created by the recipe. Different requirments depending on item type.
+						- Normally split up into:
+							- Scale -- The value to scale the resulting attribute value by.
+							- Eqn -- The equation for working out the attribute value. Consists of:
+								- A series of <multiply> blocks. The contents of the blocks will by multiplied together, the block values will be added together. Blocks consist of:
+									- Element -- An element to be multiplied. Can be a direct number value or a component attribute. Components are referenced by their titling character, and the pseudonym of the attribute of that component. (e.g. If you want the weight of Component 'a' you'd write <element>aw</element>)
+										- Pseudonyms:
+											- w = weight
+											- h = soft_hard (soft is negative, hard is positive)
+											- b = flexible_brittle (flexible is negative, brittle is positive)
+
+-->
+
+
+<recipes>
+
+	<basic_sword>
+
+		<type>weapon</type>
+
+		<components>
+			<a>
+				<name>blade_edge</name>
+				<components>
+					<type>metal</type>
+					<type>scale</type>
+					<type>jewel</type>
+					<type>tooth</type>
+				</components>
+				<amount>3</amount>
+			</a>
+			<b>
+				<name>blade_core</name>
+				<amount>1</amount>
+			</b>
+			<c>
+				<name>hilt</name>
+				<amount>1</amount>
+			</c>
+		</components>
+
+		<visual>
+			<width>1</width>
+			<height>3</height>
+			<grid>
+				<row>a</row>
+				<row>b</row>
+				<row>c</row>
+			</grid>
+		</visual>
+
+		<item>
+
+			<attack_style>
+				<type>swing</type>
+				<meta>
+					<arc_min>5</arc_min>
+					<arc_max>10</arc_max>
+				</meta>
+			</attack_style>
+
+			<strength>
+				<scale>0.6</scale>
+				<eqn>
+					<multiply>
+						<element>ah</element>
+						<element>ab</element>
+					</multiply>
+					<multiply>
+						<element>bb</element>
+						<element>-1.0</element>
+						<element>bh</element>
+					</multiply>
+				</eqn>
+			</strength>
+
+			<pierce>
+				<scale>0.6</scale>
+				<eqn>
+					<multiply>
+						<element>ah</element>
+						<element>ab</element>
+					</multiply>
+				</eqn>
+			</pierce>
+
+			<impact>
+				<scale>0.6</scale>
+				<eqn>
+					<multiply>
+						<element>ab</element>
+						<element>-1.0</element>
+						<element>aw</element>
+						<element>ah</element>
+					</multiply>
+					<multiply>
+						<element>bb</element>
+						<element>-1.0</element>
+						<element>bw</element>
+						<element>bh</element>
+					</multiply>
+				</eqn>
+			</impact>
+
+			<touch>
+				<scale>0.6</scale>
+				<eqn>
+					<multiply>
+						<element>ah</element>
+						<element>ab</element>
+					</multiply>
+					<multiply>
+						<element>bb</element>
+						<element>-1.0</element>
+						<element>bh</element>
+					</multiply>
+				</eqn>
+			</touch>
+
+			<elemental>
+				<scale>0.6</scale>
+				<eqn>
+					<multiply>
+						<element>a</element>
+					</multiply>
+					<multiply>
+						<element>b</element>
+						<element>0.1</element>
+					</multiply>
+				</eqn>
+			</elemental>
+
+			<attack_speed>
+				<scale>0.6</scale>
+				<eqn>
+					<multiply>
+						<element>aw</element>
+					</multiply>
+					<multiply>
+						<element>bw</element>
+					</multiply>
+				</eqn>
+			</attack_speed>
+		</item>
+
+	</basic_sword>
+
+</recipes>

@@ -17,6 +17,12 @@
 	<GLOBAL>
 
 		<symbol>
+			<char>0</char>
+			<type>SPAWNER_0</type>
+			<visible>false</visible>
+		</symbol>
+
+		<symbol>
 			<char>P</char>
 			<type>PLAYER_PLACER</type>
 			<visible>false</visible>
@@ -93,16 +99,23 @@
 			<depth_min>1</depth_min>
 			<depth_max>99</depth_max>
 
+			<meta>
+				<data>
+					<name>monster_type</name>
+					<contents>group</contents>
+				</data>
+			</meta>
+
 			<room>
-				<row>l.............l</row>
+				<row>l..........0..l</row>
 				<row>.##########....</row>
-				<row>.#l......L####.</row>
+				<row>.#l....0.L####.</row>
 				<row>.#...P......+..</row>
 				<row>.#.l.....l####.</row>
 				<row>.#.########l...</row>
-				<row>.#+#...........</row>
+				<row>.#+#........0..</row>
 				<row>.#.#.#####l###.</row>
-				<row>.#.#...........</row>
+				<row>.#.#....0......</row>
 				<row>.l.l..........l</row>
 			</room>
 		</level>

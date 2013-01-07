@@ -13,12 +13,41 @@
 
 	<!-- 
 		This is the list of different attributes a creature can be assigned in the evolver. Consists of the subgroups:
-			- MIND
-			- VISUAL
-			- SKIN
-			- BONES
-			- MUSCLES
-			- HANDS
+			- MIND - AI
+			- SKIN - Defense and Drops
+			- BONES - Defense and Drops
+			- MUSCLES - Attack
+			- ATTACK - Attack and Drops 
+
+
+
+
+		Drop template. Pseudonyms are used in the recipes for the equations:
+
+			<drop>
+				<type>tooth</type>
+				<name>Sharp Tooth</name>
+				<chance>70</chance> - drop chance (in percent)
+				<description>A sharp tooth, good at cutting through things.</description>
+
+				<weight_per_amount>2</weight_per_amount> - weight per amount. Pseudonym = w
+				<amount>1</amount> - amount of the material dropped
+
+				<soft_hard>10</soft_hard> - Negative values are softeness, positive are hardness. Pseudonym = h
+				<flexible_brittle>-10</flexible_brittle> - Negative values are flexibility, positive are brittleness.Pseudonym = b
+
+				<element> - elemental values. Use 100 AETHER for normal matter. Values in any other element mean the material is magical by nature.
+					<FIRE>0</FIRE>
+					<WATER>0</WATER>
+					<AIR>0</AIR>
+					<WOOD>0</WOOD>
+					<METAL>0</METAL>
+					<AETHER>100</AETHER>
+					<VOID>0</VOID>
+				</element>
+			</drop>
+
+		Drops in the Attributes list Modify the actual drop from the monster. For example a weight of 5 in the monster drop and a weight of 5 in the attribute drop will create an item with weight 10.
 	-->
 	<attributes>
 
@@ -99,6 +128,108 @@
 					<strength>0</strength>
 
 				</thick_fur>
+
+				<small_spikes>
+					<calories>10</calories>
+					<description>It's covered in short spikes. </description>
+
+					<weight>2</weight>
+
+					<health>15</health>
+					<ele_defenses>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>0</AETHER>
+						<VOID>0</VOID>
+					</ele_defenses>
+					<defenses>
+						<PIERCE>8</PIERCE>
+						<IMPACT>2</IMPACT>
+						<TOUCH>8</TOUCH>
+					</defenses>
+					<strength>3</strength>
+
+				</small_spikes>
+
+
+				<thin_skin>
+					<calories>1</calories>
+					<description>It's covered in mottled skin. </description>
+
+					<weight>0</weight>
+
+					<health>0</health>
+					<ele_defenses>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>0</AETHER>
+						<VOID>0</VOID>
+					</ele_defenses>
+					<defenses>
+						<PIERCE>0</PIERCE>
+						<IMPACT>0</IMPACT>
+						<TOUCH>0</TOUCH>
+					</defenses>
+					<strength>0</strength>
+
+				</thin_skin>
+
+				<springy_fur>
+					<calories>10</calories>
+					<description>It's covered in long, springy fur. </description>
+
+					<weight>5</weight>
+
+					<health>5</health>
+					<ele_defenses>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>0</AETHER>
+						<VOID>0</VOID>
+					</ele_defenses>
+					<defenses>
+						<PIERCE>3</PIERCE>
+						<IMPACT>10</IMPACT>
+						<TOUCH>2</TOUCH>
+					</defenses>
+					<strength>1</strength>
+
+				</springy_fur>
+
+				<long_spikes>
+					<calories>15</calories>
+					<description>It's covered in long, sharp spikes. </description>
+
+					<weight>10</weight>
+
+					<health>20</health>
+					<ele_defenses>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>0</AETHER>
+						<VOID>0</VOID>
+					</ele_defenses>
+					<defenses>
+						<PIERCE>5</PIERCE>
+						<IMPACT>10</IMPACT>
+						<TOUCH>10</TOUCH>
+					</defenses>
+					<strength>5</strength>
+
+				</long_spikes>
+
 
 			</fur>
 
@@ -184,6 +315,54 @@
 					</defenses>
 
 				</tough_bones>
+
+				<thick_bones>
+
+					<calories>5</calories>
+
+					<weight>15</weight>
+
+					<health>10</health>
+
+					<defenses>
+						<PIERCE>2</PIERCE>
+						<IMPACT>5</IMPACT>
+						<TOUCH>0</TOUCH>
+					</defenses>
+
+				</thick_bones>
+
+				<light_bones>
+
+					<calories>5</calories>
+
+					<weight>1</weight>
+
+					<health>3</health>
+
+					<defenses>
+						<PIERCE>0</PIERCE>
+						<IMPACT>-5</IMPACT>
+						<TOUCH>0</TOUCH>
+					</defenses>
+
+				</light_bones>
+
+				<reinforced_bones>
+
+					<calories>20</calories>
+
+					<weight>10</weight>
+
+					<health>20</health>
+
+					<defenses>
+						<PIERCE>4</PIERCE>
+						<IMPACT>15</IMPACT>
+						<TOUCH>4</TOUCH>
+					</defenses>
+
+				</reinforced_bones>
 			</normal>
 		</BONES>
 
@@ -194,7 +373,7 @@
 				<basic_muscles>
 
 					<calories>0</calories>
-					<weight>0</weight>
+					<weight>5</weight>
 					<strength>0</strength>
 
 				</basic_muscles>
@@ -206,6 +385,30 @@
 					<strength>10</strength>
 
 				</trained_muscles>
+
+				<quick_muscles>
+
+					<calories>5</calories>
+					<weight>1</weight>
+					<strength>1</strength>
+
+				</quick_muscles>
+
+				<strong_muscles>
+
+					<calories>5</calories>
+					<weight>10</weight>
+					<strength>7</strength>
+
+				</strong_muscles>
+
+				<super_muscles>
+
+					<calories>20</calories>
+					<weight>10</weight>
+					<strength>15</strength>
+
+				</super_muscles>
 			</normal>
 
 		</MUSCLES>
@@ -235,7 +438,26 @@
 					<description>A row of tiny teeth glimmer ominously from within its mouth. </description>
 					<attack_speed>10</attack_speed>
 					<attack_dist_min>5</attack_dist_min>
-					<attack_dist_max>10</attack_dist_max>
+					<attack_dist_max>7</attack_dist_max>
+
+					<drop>
+						<chance>0</chance>
+						<weight_per_amount>0</weight_per_amount>
+						<amount>0</amount>
+
+						<soft_hard>0</soft_hard>
+						<flexible_brittle>0</flexible_brittle>
+
+						<element>
+							<FIRE>0</FIRE>
+							<WATER>0</WATER>
+							<AIR>0</AIR>
+							<WOOD>0</WOOD>
+							<METAL>0</METAL>
+							<AETHER>0</AETHER>
+							<VOID>0</VOID>
+						</element>
+					</drop>
 
 				</weak_bite>
 
@@ -261,9 +483,73 @@
 					<description>A row of teeth glimmer ominously from within its mouth. </description>
 					<attack_speed>10</attack_speed>
 					<attack_dist_min>5</attack_dist_min>
-					<attack_dist_max>10</attack_dist_max>
+					<attack_dist_max>7</attack_dist_max>
+
+					<drop>
+						<chance>0</chance>
+						<weight_per_amount>0</weight_per_amount>
+						<amount>1</amount>
+
+						<soft_hard>5</soft_hard>
+						<flexible_brittle>5</flexible_brittle>
+
+						<element>
+							<FIRE>0</FIRE>
+							<WATER>0</WATER>
+							<AIR>0</AIR>
+							<WOOD>0</WOOD>
+							<METAL>0</METAL>
+							<AETHER>0</AETHER>
+							<VOID>0</VOID>
+						</element>
+					</drop>
 
 				</strong_bite>
+
+				<wounding_bite>
+					<calories>15</calories>
+
+					<pierce>50</pierce>
+					<impact>40</impact>
+					<touch>20</touch>
+
+					<element>
+						<FIRE>0</FIRE>
+						<WATER>0</WATER>
+						<AIR>0</AIR>
+						<WOOD>0</WOOD>
+						<METAL>0</METAL>
+						<AETHER>111</AETHER>
+						<VOID>0</VOID>
+					</element>
+
+					<weight>0</weight>
+					<strength>7</strength>
+					<description>A row of teeth glimmer ominously from within its mouth. </description>
+					<attack_speed>10</attack_speed>
+					<attack_dist_min>5</attack_dist_min>
+					<attack_dist_max>7</attack_dist_max>
+
+					<drop>
+						<chance>0</chance>
+						<weight_per_amount>0</weight_per_amount>
+						<amount>1</amount>
+
+						<soft_hard>5</soft_hard>
+						<flexible_brittle>5</flexible_brittle>
+
+						<element>
+							<FIRE>0</FIRE>
+							<WATER>0</WATER>
+							<AIR>0</AIR>
+							<WOOD>0</WOOD>
+							<METAL>0</METAL>
+							<AETHER>0</AETHER>
+							<VOID>0</VOID>
+						</element>
+					</drop>
+
+				</wounding_bite>
 			</teeth>
 
 			<claws>
@@ -340,7 +626,7 @@
 
 					<stats>
 
-						<base_calories>50</base_calories>
+						<base_calories>10</base_calories>
 
 						<MIND>
 							<scaling>3.0</scaling>
@@ -353,18 +639,42 @@
 						</SKIN>
 
 						<BONES>
-							<scaling>1.0</scaling>
+							<scaling>1.5</scaling>
 							<type>normal</type>
 						</BONES>
 
 						<MUSCLES>
-							<scaling>2.0</scaling>
+							<scaling>3.0</scaling>
 							<type>normal</type>
 						</MUSCLES>
 
 						<ATTACK_RIGHT>
 							<scaling>1.0</scaling>
 							<type>teeth</type>
+							<drop_list>
+								<drop>
+									<type>tooth</type>
+									<name>Mouse Tooth</name>
+									<chance>70</chance>
+									<description>A tiny tooth, from a mouse.</description>
+
+									<weight_per_amount>2</weight_per_amount>
+									<amount>1</amount>
+
+									<soft_hard>10</soft_hard>
+									<flexible_brittle>-10</flexible_brittle>
+
+									<element>
+										<FIRE>0</FIRE>
+										<WATER>0</WATER>
+										<AIR>0</AIR>
+										<WOOD>0</WOOD>
+										<METAL>0</METAL>
+										<AETHER>100</AETHER>
+										<VOID>0</VOID>
+									</element>
+								</drop>
+							</drop_list>
 						</ATTACK_RIGHT>
 
 						<weight>10</weight>
@@ -389,48 +699,240 @@
 
 					</stats>
 				</MOUSE>
+				<RAT>
+					<visual>
+						<description>
+							<text>A rat. It seems hungry. </text>
+							<attribute>SKIN</attribute>
+							<attribute>ATTACK</attribute>
+							<text>It's beady eyes gleam an uncomfortable red hue.</text>
+						</description>
+						<model>
+							<type>file</type>
+							<name>modelE</name>
+							<scale>0.4</scale>
+						</model>
+						<texture>blank</texture>
+						<colour>
+							<red>0.8</red>
+							<green>0.1</green>
+							<blue>0.1</blue>
+						</colour>
+					</visual>
+
+					<stats>
+
+						<base_calories>20</base_calories>
+
+						<MIND>
+							<scaling>3.0</scaling>
+							<type>group</type>
+						</MIND>
+
+						<SKIN>
+							<scaling>1.0</scaling>
+							<type>fur</type>
+						</SKIN>
+
+						<BONES>
+							<scaling>1.5</scaling>
+							<type>normal</type>
+						</BONES>
+
+						<MUSCLES>
+							<scaling>2.0</scaling>
+							<type>normal</type>
+						</MUSCLES>
+
+						<ATTACK_RIGHT>
+							<scaling>1.0</scaling>
+							<type>teeth</type>
+							<drop_list>
+								<drop>
+									<type>tooth</type>
+									<name>Rat Tooth</name>
+									<chance>70</chance>
+									<description>A tiny tooth, from a rat.</description>
+
+									<weight_per_amount>2</weight_per_amount>
+									<amount>1</amount>
+
+									<soft_hard>10</soft_hard>
+									<flexible_brittle>-10</flexible_brittle>
+
+									<element>
+										<FIRE>0</FIRE>
+										<WATER>0</WATER>
+										<AIR>0</AIR>
+										<WOOD>0</WOOD>
+										<METAL>0</METAL>
+										<AETHER>100</AETHER>
+										<VOID>0</VOID>
+									</element>
+								</drop>
+							</drop_list>
+						</ATTACK_RIGHT>
+
+						<weight>15</weight>
+						<health>15</health>
+
+						<ele_defenses>
+							<FIRE>0</FIRE>
+							<WATER>0</WATER>
+							<AIR>0</AIR>
+							<WOOD>0</WOOD>
+							<METAL>0</METAL>
+							<AETHER>10</AETHER>
+							<VOID>0</VOID>
+						</ele_defenses>
+						<defenses>
+							<PIERCE>3</PIERCE>
+							<IMPACT>3</IMPACT>
+							<TOUCH>3</TOUCH>
+						</defenses>
+
+						<strength>15</strength>
+
+					</stats>
+				</RAT>
+				<GIANT_RAT>
+					<visual>
+						<description>
+							<text>A giant rat. </text>
+							<attribute>SKIN</attribute>
+							<attribute>ATTACK</attribute>
+							<text>It's huge, foul body is streaked with blood.</text>
+						</description>
+						<model>
+							<type>file</type>
+							<name>modelE</name>
+							<scale>0.7</scale>
+						</model>
+						<texture>blank</texture>
+						<colour>
+							<red>0.8</red>
+							<green>0.1</green>
+							<blue>0.1</blue>
+						</colour>
+					</visual>
+
+					<stats>
+
+						<base_calories>50</base_calories>
+
+						<MIND>
+							<scaling>3.0</scaling>
+							<type>group</type>
+						</MIND>
+
+						<SKIN>
+							<scaling>1.0</scaling>
+							<type>fur</type>
+						</SKIN>
+
+						<BONES>
+							<scaling>1.0</scaling>
+							<type>normal</type>
+						</BONES>
+
+						<MUSCLES>
+							<scaling>1.0</scaling>
+							<type>normal</type>
+						</MUSCLES>
+
+						<ATTACK_RIGHT>
+							<scaling>1.0</scaling>
+							<type>teeth</type>
+							<drop_list>
+								<drop>
+									<type>tooth</type>
+									<name>Giant Rat Tooth</name>
+									<chance>100</chance>
+									<description>A sharp blade of a tooth.</description>
+
+									<weight_per_amount>4</weight_per_amount>
+									<amount>10</amount>
+
+									<soft_hard>10</soft_hard>
+									<flexible_brittle>-10</flexible_brittle>
+
+									<element>
+										<FIRE>0</FIRE>
+										<WATER>0</WATER>
+										<AIR>0</AIR>
+										<WOOD>0</WOOD>
+										<METAL>0</METAL>
+										<AETHER>100</AETHER>
+										<VOID>0</VOID>
+									</element>
+								</drop>
+							</drop_list>
+						</ATTACK_RIGHT>
+
+						<weight>25</weight>
+						<health>25</health>
+
+						<ele_defenses>
+							<FIRE>0</FIRE>
+							<WATER>0</WATER>
+							<AIR>0</AIR>
+							<WOOD>0</WOOD>
+							<METAL>0</METAL>
+							<AETHER>15</AETHER>
+							<VOID>0</VOID>
+						</ele_defenses>
+						<defenses>
+							<PIERCE>5</PIERCE>
+							<IMPACT>5</IMPACT>
+							<TOUCH>15</TOUCH>
+						</defenses>
+
+						<strength>25</strength>
+
+					</stats>
+				</GIANT_RAT>
 			</creatures>
 
 			<abstract>
 				<difficulty_0>
 					<creature>MOUSE</creature>
-					<calorie_usage>100</calorie_usage>
+					<calorie_usage>0</calorie_usage>
 				</difficulty_0>
 				<difficulty_1>
 					<creature>MOUSE</creature>
-					<calorie_usage>90</calorie_usage>
+					<calorie_usage>10</calorie_usage>
 				</difficulty_1>
 				<difficulty_2>
 					<creature>MOUSE</creature>
-					<calorie_usage>80</calorie_usage>
+					<calorie_usage>15</calorie_usage>
 				</difficulty_2>
 				<difficulty_3>
 					<creature>MOUSE</creature>
-					<calorie_usage>70</calorie_usage>
+					<calorie_usage>20</calorie_usage>
 				</difficulty_3>
 				<difficulty_4>
 					<creature>MOUSE</creature>
-					<calorie_usage>60</calorie_usage>
+					<calorie_usage>25</calorie_usage>
 				</difficulty_4>
 				<difficulty_5>
 					<creature>MOUSE</creature>
-					<calorie_usage>50</calorie_usage>
+					<calorie_usage>30</calorie_usage>
 				</difficulty_5>
 				<difficulty_6>
-					<creature>MOUSE</creature>
+					<creature>RAT</creature>
 					<calorie_usage>40</calorie_usage>
 				</difficulty_6>
 				<difficulty_7>
-					<creature>MOUSE</creature>
-					<calorie_usage>30</calorie_usage>
+					<creature>RAT</creature>
+					<calorie_usage>50</calorie_usage>
 				</difficulty_7>
 				<difficulty_8>
-					<creature>MOUSE</creature>
-					<calorie_usage>20</calorie_usage>
+					<creature>RAT</creature>
+					<calorie_usage>70</calorie_usage>
 				</difficulty_8>
 				<difficulty_9>
-					<creature>MOUSE</creature>
-					<calorie_usage>10</calorie_usage>
+					<creature>GIANT_RAT</creature>
+					<calorie_usage>100</calorie_usage>
 				</difficulty_9>
 			</abstract>
 		</RODENT>
