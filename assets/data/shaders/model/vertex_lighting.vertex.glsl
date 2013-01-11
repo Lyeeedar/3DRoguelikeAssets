@@ -55,7 +55,7 @@ void main()
 #if LIGHTS_NUM > 0
 	v_diffuse.rgb = a_colour * (a_baked_light + light_agg_col);
 #else
-	v_diffuse.rgb = a_colour;
+	v_diffuse.rgb = a_colour * a_baked_light;
 #endif
 	
 }

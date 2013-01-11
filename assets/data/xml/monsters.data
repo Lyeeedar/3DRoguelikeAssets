@@ -614,7 +614,7 @@
 						<model>
 							<type>file</type>
 							<name>modelE</name>
-							<scale>0.2</scale>
+							<scale>0.7</scale>
 						</model>
 						<texture>blank</texture>
 						<colour>
@@ -710,7 +710,7 @@
 						<model>
 							<type>file</type>
 							<name>modelE</name>
-							<scale>0.4</scale>
+							<scale>0.9</scale>
 						</model>
 						<texture>blank</texture>
 						<colour>
@@ -806,7 +806,7 @@
 						<model>
 							<type>file</type>
 							<name>modelE</name>
-							<scale>0.7</scale>
+							<scale>1.2</scale>
 						</model>
 						<texture>blank</texture>
 						<colour>
