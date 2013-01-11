@@ -38,7 +38,7 @@ vec3 calculateLight(vec3 l_dir, vec3 l_colour, float l_attenuation, vec3 n_dir)
 void main()
 {		
 	#ifdef u_normalmap_textureFlag
-		vec3 normal = normalize(u_normal_matrix * texture2D(u_normalmap_texture, v_texCoords));
+		vec3 normal = texture2D(u_normalmap_texture, v_texCoords) * normalize(u_normal_matrix * v_normal);
 	#else
 		vec3 normal = normalize(u_normal_matrix * v_normal);
 	#endif

@@ -41,19 +41,19 @@ void main()
 	vec3 pos  = worldPos.xyz;
 	vec3 normal = normalize(u_normal_matrix * a_normal);
 	
-	vec3 light_agg_col = vec3(0, 0, 0);
+	vec3 light = vec3(0, 0, 0);
 
 #if LIGHTS_NUM > 0		
 	for ( int i = 0; i < LIGHTS_NUM; i++ ){	
 
 		vec3 light_model = u_light_positions[i] - pos;
 
-		light_agg_col += calculateLight(light_model, u_light_colours[i], u_light_attenuations[i], u_light_intensities[i], normal);
+		light += calculateLight(light_model, u_light_colours[i], u_light_attenuations[i], u_light_intensities[i], normal);
 	}
 #endif
 
 #if LIGHTS_NUM > 0
-	v_diffuse.rgb = a_colour * (a_baked_light + light_agg_col);
+	v_diffuse.rgb = a_colour * (a_baked_light + light);
 #else
 	v_diffuse.rgb = a_colour * a_baked_light;
 #endif
