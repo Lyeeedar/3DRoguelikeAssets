@@ -54,4 +54,5 @@ void main()
 
 	v_colour = a_colour;
 	v_baked_light = a_baked_light;
+
 }
