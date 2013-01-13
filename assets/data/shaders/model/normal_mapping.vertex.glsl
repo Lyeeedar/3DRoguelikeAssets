@@ -24,6 +24,8 @@ varying vec3 v_normal;
 varying vec3 v_colour;
 varying vec3 v_baked_light;
 
+varying vec3 v_pos;
+
 // Diffuse light model. It actually works :p
 void calculateLightVariables(int index, vec3 l_vector, vec3 l_colour, float l_attenuation, float l_intensity)
 {
@@ -44,6 +46,7 @@ void main()
 
 	vec4 worldPos = u_model_matrix * vec4(a_position,1.0);
 	gl_Position = u_pv * worldPos;
+	v_pos = worldPos.xyz;
 
 	#if LIGHTS_NUM > 0		
 		for ( int i = 0; i < LIGHTS_NUM; i++ ){	

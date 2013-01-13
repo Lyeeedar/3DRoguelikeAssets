@@ -28,6 +28,8 @@ varying vec3 v_baked_light;
 
 varying mat3 v_tangent_space;
 
+varying vec3 v_pos;
+
 // Diffuse light model. It actually works :p
 vec3 calculateLight(vec3 l_dir, vec3 l_colour, float l_attenuation, vec3 n_dir)
 {
@@ -38,19 +40,35 @@ vec3 calculateLight(vec3 l_dir, vec3 l_colour, float l_attenuation, vec3 n_dir)
 	return l_colour * intensity;
 }
 
-mat3 compute_tangent_frame(vec3 Normal, vec3 View, vec2 UV)
+mat3 compute_tangent_frame(vec3 normal, mat3 rot, vec2 UV)
 {
-	vec3 dp1 = dFdx(View);
-	vec3 dp2 = dFdy(View);
-	vec2 duv1 = dFdx(UV);
-	vec2 duv2 = dFdy(UV);
+	//mat3 tangent_space = mat3(0.0);
 
-	mat3 M = mat3(dp1, dp2, cross(dp1, dp2));
-	mat3 inverseM = mat3( cross( M[1], M[2] ), cross( M[2], M[0] ), vec3(0.0) );
-	vec3 T = vec3(duv1.x, duv2.x, 0.0)*inverseM;
-	vec3 B = vec3(duv1.y, duv2.y, 0.0)*inverseM;
+	//tangent_space[0] = normalize(u_model_matrix * vec4(UV.y, UV.x, 0.0, 0.0));
+  	//tangent_space[2] = normalize(rot * normal);
+  	//tangent_space[1] = normalize(cross(tangent_space[2], tangent_space[0]));
 
-	return mat3(normalize(T), normalize(B), Normal);
+  	// compute derivations of the texture coordinate
+	vec2 tc_dx = dFdx(UV);
+	vec2 tc_dy = dFdy(UV);
+
+	vec3 p_dx = dFdx(v_pos);
+	vec3 p_dy = dFdy(v_pos);
+	// compute initial tangent and bi-tangent
+	vec3 t = normalize( tc_dy.y * p_dx - tc_dx.y * p_dy );
+	vec3 b = normalize( tc_dy.x * p_dx - tc_dx.x * p_dy ); // sign inversion
+	// get new tangent from a given mesh normal
+	vec3 n = normalize(normal);
+	vec3 x = cross(n, t);
+	t = cross(x, n);
+	t = normalize(t);
+	// get updated bi-tangent
+	x = cross(b, n);
+	b = cross(n, x);
+	b = normalize(b);
+	return mat3(t, b, n);
+
+	//return tangent_space;//mat3(normalize(T), normalize(B), Normal);
 }
 
 void main()
@@ -58,8 +76,7 @@ void main()
 	#ifdef u_normalmap_textureFlag
 	vec3 normal = vec3(0.0);
 	if (u_nm == 1)
-		normal = normalize((2.0 * texture2D(u_normalmap_texture, v_texCoords).xyz - 1.0));
-			//* compute_tangent_frame(v_normal, u_normal_matrix*v_normal, v_texCoords));
+		normal = normalize((2.0 * texture2D(u_normalmap_texture, v_texCoords).xyz - 1.0));// * compute_tangent_frame(v_normal, u_normal_matrix, v_texCoords));
 	else
 		normal = normalize(u_normal_matrix * v_normal);
 		//vec3 normal = texture2D(u_normalmap_texture, v_texCoords);//normalize((2.0 * texture2D(u_normalmap_texture, v_texCoords).xyz - 1.0) 
