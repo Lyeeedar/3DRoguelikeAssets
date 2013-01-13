@@ -3,6 +3,7 @@ attribute vec2 a_texCoord0;
 attribute vec3 a_normal;
 attribute vec3 a_colour;
 attribute vec3 a_baked_light;
+attribute vec4 a_tangent;
 
 #if LIGHTS_NUM > 0
 	uniform vec3 u_light_positions[LIGHTS_NUM];
@@ -17,6 +18,7 @@ attribute vec3 a_baked_light;
 
 uniform mat4 u_pv;
 uniform mat4 u_model_matrix;
+uniform mat3 u_normal_matrix;
 
 varying vec2 v_texCoords;
 varying vec3 v_normal;
@@ -24,6 +26,7 @@ varying vec3 v_normal;
 varying vec3 v_colour;
 varying vec3 v_baked_light;
 
+varying mat3 v_tangent_space;
 varying vec3 v_pos;
 
 // Diffuse light model. It actually works :p
@@ -46,6 +49,7 @@ void main()
 
 	vec4 worldPos = u_model_matrix * vec4(a_position,1.0);
 	gl_Position = u_pv * worldPos;
+
 	v_pos = worldPos.xyz;
 
 	#if LIGHTS_NUM > 0		
@@ -58,4 +62,11 @@ void main()
 	v_colour = a_colour;
 	v_baked_light = a_baked_light;
 
+
+	vec3 binormal = cross(a_normal, a_tangent.xyz);
+
+	v_tangent_space = mat3(
+		normalize(u_normal_matrix * a_tangent.xyz),
+		normalize(u_normal_matrix * binormal),
+		normalize(u_normal_matrix * a_normal));
 }
