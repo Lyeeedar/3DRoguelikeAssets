@@ -1,6 +1,5 @@
 
 uniform mat3 u_normal_matrix;
-uniform int u_nm;
 
 #ifdef u_diffuse_textureFlag
 	uniform sampler2D u_diffuse_texture;
@@ -55,16 +54,10 @@ vec3 calculateLight(vec3 l_dir, vec3 l_colour, float l_attenuation, vec3 n_dir)
 void main()
 {		
 	#ifdef u_normalmap_textureFlag
-	vec3 normal = vec3(0.0);
-	if (u_nm == 1)
-		normal = normalize((2.0 * texture2D(u_normalmap_texture, v_texCoords).xyz - 1.0) * computeTangentFrame(v_normal, v_pos, v_texCoords));
-	else
-		normal = normalize(u_normal_matrix * v_normal);
+		vec3 normal = normalize((2.0 * texture2D(u_normalmap_texture, v_texCoords).xyz - 1.0) * computeTangentFrame(v_normal, v_pos, v_texCoords));
 	#else
 		vec3 normal = normalize(u_normal_matrix * v_normal);
 	#endif
-
-
 
 	vec3 light = vec3(0.0);
 

@@ -5,22 +5,22 @@
 	The list of recipes in the game. These are abstract layouts for creating items.
 
 	A recipe consists of:
-		TYPE -- The type of item the recipe creates, e.g. weapon, armour_head, armour_body etc
-		COMPONENTS -- The components required by the recipe. Consists of:
+		TYPE - The type of item the recipe creates, e.g. weapon, armour_head, armour_body etc
+		COMPONENTS - The components required by the recipe. Consists of:
 						- List of components, titled by letters. Consist of:
-							- Name -- The name of the component (used in the visual recipe)
-							- Amount -- The amount of the component required
+							- Name - The name of the component (used in the visual recipe)
+							- Amount - The amount of the component required
 							- !OPTIONAL! List of types of item this component is restricted to.
-		VISUAL -- The grid of components, for visually displaying the recipe. Consists of:
-						- Width -- The width of the grid
-						- Height -- The height of the grid
-						- Grid -- The grid. Split into rows. Components are referenced by their titling character.
-		ITEM -- The item created by the recipe. Different requirments depending on item type.
+		VISUAL - The grid of components, for visually displaying the recipe. Consists of:
+						- Width - The width of the grid
+						- Height - The height of the grid
+						- Grid - The grid. Split into rows. Components are referenced by their titling character.
+		ITEM - The item created by the recipe. Different requirments depending on item type.
 						- Normally split up into:
-							- Scale -- The value to scale the resulting attribute value by.
-							- Eqn -- The equation for working out the attribute value. Consists of:
+							- Scale - The value to scale the resulting attribute value by.
+							- Eqn - The equation for working out the attribute value. Consists of:
 								- A series of <multiply> blocks. The contents of the blocks will by multiplied together, the block values will be added together. Blocks consist of:
-									- Element -- An element to be multiplied. Can be a direct number value or a component attribute. Components are referenced by their titling character, and the pseudonym of the attribute of that component. (e.g. If you want the weight of Component 'a' you'd write <element>aw</element>)
+									- Element - An element to be multiplied. Can be a direct number value or a component attribute. Components are referenced by their titling character, and the pseudonym of the attribute of that component. (e.g. If you want the weight of Component 'a' you'd write <element>aw</element>)
 										- Pseudonyms:
 											- w = weight
 											- h = soft_hard (soft is negative, hard is positive)
@@ -31,9 +31,10 @@
 
 <recipes>
 
-	<basic_sword>
+	<sword>
 
 		<type>weapon</type>
+		<rarity>1</rarity>
 
 		<components>
 			<a>
@@ -67,7 +68,6 @@
 		</visual>
 
 		<item>
-
 			<attack_style>
 				<type>swing</type>
 				<meta>
@@ -160,6 +160,6 @@
 			</attack_speed>
 		</item>
 
-	</basic_sword>
+	</sword>
 
 </recipes>
