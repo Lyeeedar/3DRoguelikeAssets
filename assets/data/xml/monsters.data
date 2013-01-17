@@ -655,6 +655,7 @@
 								<drop>
 									<type>tooth</type>
 									<name>Mouse Tooth</name>
+									<rarity>1</rarity>
 									<chance>70</chance>
 									<description>A tiny tooth, from a mouse.</description>
 
@@ -751,6 +752,7 @@
 								<drop>
 									<type>tooth</type>
 									<name>Rat Tooth</name>
+									<rarity>1</rarity>
 									<chance>70</chance>
 									<description>A tiny tooth, from a rat.</description>
 
@@ -847,6 +849,7 @@
 								<drop>
 									<type>tooth</type>
 									<name>Giant Rat Tooth</name>
+									<rarity>2</rarity>
 									<chance>100</chance>
 									<description>A sharp blade of a tooth.</description>
 

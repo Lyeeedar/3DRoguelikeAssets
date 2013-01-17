@@ -79,10 +79,6 @@ void main()
 
 	gl_FragColor.rgb = diffuse.rgb;
 
-	#ifdef u_glowFlag
-		gl_FragColor.a = u_glow;
-	#else
-		gl_FragColor.a = 0.0;
-	#endif
+	gl_FragColor.a = 1.0;
 
 }

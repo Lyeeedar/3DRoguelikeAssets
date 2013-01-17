@@ -39,12 +39,12 @@
 		<components>
 			<a>
 				<name>blade_edge</name>
-				<components>
+				<constraints>
 					<type>metal</type>
 					<type>scale</type>
 					<type>jewel</type>
 					<type>tooth</type>
-				</components>
+				</constraints>
 				<amount>3</amount>
 			</a>
 			<b>

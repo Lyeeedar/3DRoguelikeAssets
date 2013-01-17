@@ -182,23 +182,23 @@
 		</description>
 
 		<wall>
-			<texture>rock</texture>
+			<texture>tex#</texture>
 			<red>0.417</red>
 			<green>0.457</green>
 			<blue>0.417</blue>
 		</wall>
 
 		<floor>
-			<texture>floor</texture>
+			<texture>tex.</texture>
 			<red>0.617</red>
 			<green>0.657</green>
 			<blue>0.617</blue>
 		</floor>
 
 		<ambient_light>
-			<red>0.2</red>
-			<green>0.2</green>
-			<blue>0.2</blue>
+			<red>0.0</red>
+			<green>0.0</green>
+			<blue>0.0</blue>
 		</ambient_light>
 
 	</start_town>
