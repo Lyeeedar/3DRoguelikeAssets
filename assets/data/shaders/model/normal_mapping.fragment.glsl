@@ -14,9 +14,10 @@ uniform mat3 u_normal_matrix;
 #endif
 
 #if LIGHTS_NUM > 0
-	varying vec3 v_light_direction[LIGHTS_NUM];
-	varying float v_light_attenuation[LIGHTS_NUM];
-	varying vec3 v_light_colour[LIGHTS_NUM];
+	uniform vec3 u_light_positions[LIGHTS_NUM];
+	uniform vec3 u_light_colours[LIGHTS_NUM];
+	uniform float u_light_attenuations[LIGHTS_NUM];
+	uniform float u_light_intensities[LIGHTS_NUM];
 #endif
 
 varying vec2 v_texCoords;
@@ -25,8 +26,21 @@ varying vec3 v_normal;
 varying vec3 v_colour;
 varying vec3 v_baked_light;
 
-varying mat3 v_tangent_space;
 varying vec3 v_pos;
+
+// Diffuse light model. It actually works :p
+vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, float l_intensity, vec3 n_dir)
+{
+	if (length(l_colour) == 0) return vec3(0, 0, 0);
+
+	float distance = length(l_vector);
+	vec3 l_dir = normalize(l_vector);
+	
+	float attenuation = 1.0 / (l_attenuation * distance * distance);
+	float intensity = attenuation * max(0.0, dot(n_dir, l_dir));
+	
+	return l_colour * intensity * l_intensity;
+}
 
 mat3 computeTangentFrame(vec3 normal, vec3 position, vec2 texCoord)
 {
@@ -41,16 +55,6 @@ mat3 computeTangentFrame(vec3 normal, vec3 position, vec2 texCoord)
     return mat3(tangent, binormal, normal);
 }
 
-// Diffuse light model. It actually works :p
-vec3 calculateLight(vec3 l_dir, vec3 l_colour, float l_attenuation, vec3 n_dir)
-{
-	if (length(l_colour) == 0) return vec3(0, 0, 0);
-	
-	float intensity = l_attenuation * max(0.0, dot(n_dir, l_dir));
-	
-	return l_colour * intensity;
-}
-
 void main()
 {		
 	#ifdef u_normalmap_textureFlag
@@ -63,7 +67,10 @@ void main()
 
 	#if LIGHTS_NUM > 0		
 		for ( int i = 0; i < LIGHTS_NUM; i++ ){	
-			light += calculateLight(v_light_direction[i], v_light_colour[i], v_light_attenuation[i], normal);
+
+			vec3 light_model = u_light_positions[i] - v_pos;
+
+			light += calculateLight(light_model, u_light_colours[i], u_light_attenuations[i], u_light_intensities[i], normal);
 		}
 	#endif
 
