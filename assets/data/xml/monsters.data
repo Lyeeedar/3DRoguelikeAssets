@@ -623,14 +623,14 @@
 						</description>
 						<model>
 							<type>file</type>
-							<name>modelE</name>
+							<name>modelR</name>
 							<scale>0.7</scale>
 						</model>
-						<texture>blank</texture>
+						<texture>modelRtex</texture>
 						<colour>
-							<red>0.8</red>
-							<green>0.1</green>
-							<blue>0.1</blue>
+							<red>0.9</red>
+							<green>0.2</green>
+							<blue>0.2</blue>
 						</colour>
 					</visual>
 
