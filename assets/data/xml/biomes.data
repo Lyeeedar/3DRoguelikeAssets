@@ -156,7 +156,7 @@
 		<width>17</width>
 		<height>12</height>
 
-		<roof>40</roof>
+		<roof>10</roof>
 
 		<description>
 			<char>
@@ -196,9 +196,9 @@
 		</floor>
 
 		<ambient_light>
-			<red>0.1</red>
-			<green>0.2</green>
-			<blue>0.1</blue>
+			<red>0.3</red>
+			<green>0.4</green>
+			<blue>0.3</blue>
 		</ambient_light>
 
 	</start_town>
