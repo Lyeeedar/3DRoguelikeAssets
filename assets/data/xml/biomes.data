@@ -82,9 +82,9 @@
 		</floor>
 
 		<ambient_light>
-			<red>0.2</red>
-			<green>0.2</green>
-			<blue>0.2</blue>
+			<red>0.5</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
 		</ambient_light>
 
 		<room_settings>
@@ -92,10 +92,6 @@
 			<padding>3</padding>
 
 			<START>
-				<number>
-					<min>1</min>
-					<var>0</var>
-				</number>
 				<size>
 					<min>1</min>
 					<var>2</var>
@@ -103,10 +99,6 @@
 			</START>
 
 			<END>
-				<number>
-					<min>1</min>
-					<var>0</var>
-				</number>
 				<size>
 					<min>1</min>
 					<var>2</var>

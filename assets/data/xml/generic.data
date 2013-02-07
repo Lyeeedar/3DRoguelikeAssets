@@ -320,7 +320,10 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<monster_type>GROUP</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>group</contents>
+				</data>
 			</meta>
 
 			<room>
@@ -358,7 +361,10 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<monster_type>SINGLE</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>single</contents>
+				</data>
 			</meta>
 
 			<definitions>
@@ -415,7 +421,10 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<monster_type>TRIBAL</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>tribal</contents>
+				</data>
 			</meta>
 
 			<room>
@@ -446,7 +455,10 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<monster_type>GROUP</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>group</contents>
+				</data>
 			</meta>
 
 			<room>
@@ -483,7 +495,10 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<monster_type>GROUP</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>group</contents>
+				</data>
 			</meta>
 
 			<room>
@@ -531,8 +546,14 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<OOD>10</OOD>
-				<monster_type>SINGLE</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>single</contents>
+				</data>
+				<data>
+					<name>OOD</name>
+					<contents>10</contents>
+				</data>
 			</meta>
 
 			<definitions>
@@ -581,7 +602,10 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<monster_type>TRIBAL</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>tribal</contents>
+				</data>
 			</meta>
 
 			<definitions>
@@ -739,7 +763,10 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<monster_type>ANY</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>group</contents>
+				</data>
 			</meta>
 
 			<room>
@@ -774,7 +801,10 @@ BLOCK STRUCTURE INFO:
 			<height>7</height>
 
 			<meta>
-				<monster_type>ANY</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>group</contents>
+				</data>
 			</meta>
 
 			<room>
@@ -796,7 +826,10 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<monster_type>ANY</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>group</contents>
+				</data>
 			</meta>
 
 			<room>
@@ -820,7 +853,10 @@ BLOCK STRUCTURE INFO:
 			<depth_max>99</depth_max>
 
 			<meta>
-				<monster_type>GROUP</monster_type>
+				<data>
+					<name>monster_type</name>
+					<contents>group</contents>
+				</data>
 			</meta>
 
 			<room>
