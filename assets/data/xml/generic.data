@@ -427,21 +427,46 @@ BLOCK STRUCTURE INFO:
 				</data>
 			</meta>
 
+			<definitions>
+				<symbol>
+					<char>w</char>
+					<type>STATIC</type>
+					<visible>true</visible>
+					<short_description>A strong wooden wall.</short_description>
+					<long_description>A strong wooden wall, formed of thick wooden boards nailed together.</long_description>
+					<model>
+						<type>cube</type>
+						<dimensions>
+							<number>3</number>
+							<d1>10.0</d1>
+							<d2>20.0</d2>
+							<d3>10.0</d3>
+						</dimensions>
+					</model>
+					<texture>wood</texture>
+					<colour>
+						<red>1.0</red>
+						<green>1.0</green>
+						<blue>0.7</blue>
+					</colour>
+				</symbol>
+			</definitions>
+
 			<room>
 				<row>...............</row>
-				<row>..#####+#####..</row>
-				<row>..#l0.#.#.0l#..</row>
-				<row>..#0..+.+..0#..</row>
-				<row>..#...#.#...#..</row>
-				<row>..#####.#####..</row>
-				<row>..#....5....#..</row>
-				<row>..##+##.##+##..</row>
-				<row>..#3.3#l#...#..</row>
-				<row>..#...#.#..1#..</row>
-				<row>..#l6l#.#.2l#..</row>
-				<row>..##+########..</row>
-				<row>..##.......$#..</row>
-				<row>..###########..</row>
+				<row>..wwwww+wwwww..</row>
+				<row>..wl0.w.w.0lw..</row>
+				<row>..w0..+.+..0w..</row>
+				<row>..w...w.w...w..</row>
+				<row>..wwwww.wwwww..</row>
+				<row>..w....5....w..</row>
+				<row>..ww+ww.ww+ww..</row>
+				<row>..w3.3wlw...w..</row>
+				<row>..w...w.w..1w..</row>
+				<row>..wl6lw.w.2lw..</row>
+				<row>..ww+wwwwwwww..</row>
+				<row>..ww.......$w..</row>
+				<row>..wwwwwwwwwww..</row>
 				<row>...............</row>
 			</room>
 		</monster_village>

@@ -68,14 +68,14 @@
 		</description>
 
 		<wall>
-			<texture>tex#</texture>
+			<texture>tex#rock</texture>
 			<red>0.517</red>
 			<green>0.557</green>
 			<blue>0.217</blue>
 		</wall>
 
 		<floor>
-			<texture>tex.</texture>
+			<texture>grass</texture>
 			<red>0.217</red>
 			<green>0.657</green>
 			<blue>0.217</blue>
@@ -140,7 +140,6 @@
 		</room_settings>
 	</generic>
 
-	<!-- A generic biome. Has grey walls and grey floors. Uses the serk generator (rooms and corridors) -->
 	<start_town>
 
 		<generator>Static</generator>
@@ -192,6 +191,8 @@
 			<green>0.4</green>
 			<blue>0.3</blue>
 		</ambient_light>
+
+		<skybox>sky</skybox>
 
 	</start_town>
 
