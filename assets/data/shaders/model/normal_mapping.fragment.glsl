@@ -24,7 +24,8 @@ varying vec2 v_texCoords;
 varying vec3 v_normal;
 
 varying vec3 v_colour;
-varying vec3 v_baked_light;
+
+varying vec3 v_ambient_light;
 
 varying vec3 v_pos;
 
@@ -74,11 +75,7 @@ void main()
 		}
 	#endif
 
-	#if LIGHTS_NUM > 0
-		vec3 diffuse = v_colour * (v_baked_light + light);
-	#else
-		vec3 diffuse = v_colour * v_baked_light;
-	#endif
+	vec3 diffuse = v_colour * (v_ambient_light + light);
 	
 	#ifdef u_diffuse_textureFlag
 		diffuse *= texture2D(u_diffuse_texture, v_texCoords);

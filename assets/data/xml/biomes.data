@@ -82,9 +82,9 @@
 		</floor>
 
 		<ambient_light>
-			<red>0.5</red>
-			<green>0.5</green>
-			<blue>0.5</blue>
+			<red>0.1</red>
+			<green>0.1</green>
+			<blue>0.1</blue>
 		</ambient_light>
 
 		<room_settings>
@@ -173,7 +173,7 @@
 		</description>
 
 		<wall>
-			<texture>rockmag</texture>
+			<texture>tex#rock</texture>
 			<red>0.9</red>
 			<green>0.9</green>
 			<blue>0.9</blue>
