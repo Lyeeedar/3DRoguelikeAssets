@@ -76,6 +76,8 @@
 				</meta>
 			</attack_style>
 
+			<visual>sword</visual>
+
 			<strength>
 				<scale>0.6</scale>
 				<eqn>

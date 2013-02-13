@@ -440,6 +440,7 @@
 					<attack_dist_min>5</attack_dist_min>
 					<attack_dist_max>7</attack_dist_max>
 					<weapon_type>melee</weapon_type>
+					<weapon_visual>sword</weapon_visual>
 					<weapon_style>swing</weapon_style>
 
 					<drop>
@@ -487,6 +488,7 @@
 					<attack_dist_min>5</attack_dist_min>
 					<attack_dist_max>7</attack_dist_max>
 					<weapon_type>melee</weapon_type>
+					<weapon_visual>sword</weapon_visual>
 					<weapon_style>swing</weapon_style>
 
 					<drop>
@@ -534,6 +536,7 @@
 					<attack_dist_min>5</attack_dist_min>
 					<attack_dist_max>7</attack_dist_max>
 					<weapon_type>melee</weapon_type>
+					<weapon_visual>sword</weapon_visual>
 					<weapon_style>swing</weapon_style>
 
 					<drop>
