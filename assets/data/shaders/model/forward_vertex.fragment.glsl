@@ -1,21 +1,8 @@
-#ifdef GL_ES
-#define LOWP lowp
-#define MED mediump
-precision lowp float;
-#else
-#define MED
-#define LOWP
-#endif
-
 #ifdef u_diffuse_textureFlag
 uniform sampler2D u_diffuse_texture;
 #endif
 
-#ifdef u_glowFlag
-uniform float u_glow;
-#endif
-
-varying MED vec2 v_texCoords;
+varying vec2 v_texCoords;
 varying vec3 v_diffuse;
 void main()
 {		
