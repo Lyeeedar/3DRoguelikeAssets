@@ -5,10 +5,7 @@ attribute vec3 a_baked_light;
 
 uniform mat4 u_pv;
 uniform mat4 u_model_matrix;
-
-#ifdef u_colourFlag
-	uniform vec3 u_colour;
-#endif
+uniform vec3 u_colour;
 
 #if LIGHTS_NUM > 0
 uniform mat3 u_normal_matrix;
@@ -31,9 +28,10 @@ vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, float l_p
     //Intensity of the diffuse light. Saturate to keep within the 0-1 range.
     float NdotL = dot( n_dir, l_dir );
     float intensity = clamp( NdotL, 0.0, 1.0 );
+    float attenuation = 1 / ( l_attenuation*distance + l_attenuation / 10 * distance * distance );
  
     // Calculate the diffuse light factoring in light color, power and the attenuation
-   	return l_colour * intensity * l_power / (l_attenuation*distance + l_attenuation/10*distance*distance);
+   	return l_colour * intensity * l_power * attenuation;
 }
 #endif
 
@@ -56,11 +54,8 @@ void main()
 		}
 	#endif
 
-	#ifdef u_colourFlag
-		vec3 colour = u_colour;
-	#else
-		vec3 colour = vec3(1.0);
-	#endif
+	vec3 colour = u_colour;
+
 
 	#if LIGHTS_NUM > 0
 		v_diffuse = colour * (a_baked_light + light);

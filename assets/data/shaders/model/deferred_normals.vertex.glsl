@@ -5,11 +5,14 @@ attribute vec3 a_normal;
 uniform mat4 u_pv;
 uniform mat4 u_model_matrix;
 uniform mat3 u_normal_matrix;
+uniform vec3 u_cam;
 
 varying vec2 v_texCoords;
 varying vec3 v_normal;
 varying vec3 v_pos;
 varying vec2 v_depth;
+
+varying float v_sdepth;
 
 void main()
 {	
@@ -22,4 +25,6 @@ void main()
 
 	v_depth.xy = screenPos.zw; 
 	v_pos = worldPos.xyz;
+
+	v_sdepth = length ( u_cam - worldPos.xyz ) / 100;
 }

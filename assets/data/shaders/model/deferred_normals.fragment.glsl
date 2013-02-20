@@ -9,6 +9,8 @@ varying vec3 v_normal;
 varying vec3 v_pos;
 varying vec2 v_depth;
 
+varying float v_sdepth;
+
 mat3 computeTangentFrame(vec3 normal, vec3 position, vec2 texCoord)
 {
     vec3 dpx = dFdx(position);
