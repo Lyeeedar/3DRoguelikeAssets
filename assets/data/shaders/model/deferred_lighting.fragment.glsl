@@ -1,14 +1,19 @@
-
 uniform sampler2D u_normals;
 
 uniform vec3 u_colour;
 uniform float u_attenuation;
 uniform float u_power;
-uniform mat4 u_inv_pv;
+//uniform mat4 u_inv_pv;
 uniform vec3 u_model;
 uniform vec3 u_cam;
 
+uniform mat4 u_inv_v;
+
 uniform vec2 u_screen;
+
+uniform float u_linearDepth;
+
+varying vec3 v_pos;
 
 vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, float l_power, vec3 n_dir, vec3 v_dir)
 {
@@ -17,7 +22,7 @@ vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, float l_p
 
     float NdotL = dot( n_dir, l_dir );
     float intensity = clamp( NdotL, 0.0, 1.0 );
-    float attenuation = 1 / ( l_attenuation*distance + l_attenuation / 5 * distance * distance );
+    float attenuation = 1 / ( l_attenuation*distance + l_attenuation / 10 * distance * distance );
  
    	vec3 diffuse = l_colour * intensity * l_power * attenuation;
 
@@ -34,24 +39,44 @@ vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, float l_p
    	return diffuse;// + specular;
 }
 
+float unpackHalf (vec2 colour)
+{
+	return colour.x + (colour.y / 255.0);
+}
+
+vec3 decode(vec2 enc)
+{
+	vec2 fenc = enc*4-2;
+    float f = dot(fenc,fenc);
+    float g = sqrt(1-f/4);
+    vec3 n;
+    n.xy = fenc*g;
+    n.z = 1-f/2;
+    return n;
+}
+
 void main() 
 {
 	vec2 screenPos = ( gl_FragCoord.xy ) / u_screen;
 	vec4 storedData = texture2D( u_normals, screenPos );
 
-	float depth = storedData.a;
-	vec3 normal = normalize( ( storedData.rgb * 2 ) - 1 );
+	float depth = unpackHalf( storedData.ba );
+	vec3 normal = normalize( ( u_inv_v * vec4(decode(storedData.rg), 0.0) ).xyz); //vec3(1.0);//normalize( ( storedData.rgb * 2 ) - 1 );
 
-	vec4 pixelPos;
-	pixelPos.xy = screenPos * 2 - 1;
-	pixelPos.z = depth;
-	pixelPos.w = 1.0;
+	vec3 viewRay = normalize( v_pos - u_cam );
 
-	pixelPos = u_inv_pv * pixelPos;
-	pixelPos.xyz /= pixelPos.w;
+	vec3 pixelPos;
+	//pixelPos.xy = screenPos * 2 - 1;
+	//pixelPos.z = depth;
+	//pixelPos.w = 1.0;
 
-	vec3 l_vector = u_model - pixelPos.xyz;
-	vec3 viewDir = u_cam - pixelPos.xyz;
+	//pixelPos = u_inv_pv * pixelPos;
+	//pixelPos.xyz /= pixelPos.w;
+
+	pixelPos = u_cam + viewRay * ( depth * u_linearDepth );
+
+	vec3 l_vector = u_model - pixelPos;
+	vec3 viewDir = u_cam - pixelPos;
 
 	vec3 light = calculateLight( l_vector, u_colour, u_attenuation, u_power, normal, viewDir );
 

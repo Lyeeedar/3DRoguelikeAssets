@@ -7,9 +7,28 @@ uniform mat3 u_normal_matrix;
 varying vec2 v_texCoords;
 varying vec3 v_normal;
 varying vec3 v_pos;
-varying vec2 v_depth;
+//varying vec2 v_depth;
 
-varying float v_sdepth;
+uniform mat4 u_v;
+
+uniform float u_linearDepth;
+
+varying vec3 v_d;
+
+vec2 packHalf (float depth)
+{
+	const vec2 bias = vec2(1.0 / 255.0,
+				0.0);
+							
+	vec2 colour = vec2(depth, fract(depth * 255.0));
+	return colour - (colour.yy * bias);
+}
+
+vec2 encode (vec3 n)
+{
+	float f = sqrt(8*n.z+8);
+    return n.xy / f + 0.5;
+}
 
 mat3 computeTangentFrame(vec3 normal, vec3 position, vec2 texCoord)
 {
@@ -32,6 +51,8 @@ void main()
 		vec3 normal = normalize(u_normal_matrix * v_normal);
 	#endif
 
-	gl_FragColor.rgb = normal * 0.5 + 0.5;
-	gl_FragColor.a = v_depth.x/v_depth.y;
+	normal = normalize( (u_v * vec4(normal, 0.0)).xyz );
+
+	gl_FragColor.rg = encode( normal ); //1.0;//normal * 0.5 + 0.5;
+	gl_FragColor.ba = packHalf(length(v_d)/u_linearDepth);//v_depth.x/v_depth.y);//v_d.z / 150.0; //length( v_pos - u_cam ) / 150;//v_depth.x/v_depth.y;
 }
