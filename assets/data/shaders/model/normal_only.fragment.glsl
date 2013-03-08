@@ -22,7 +22,7 @@ vec3 decode(vec2 enc)
 void main() {
 	vec4 colour = texture2D(u_texture, v_texCoords);
 
-	vec3 normal = normalize( ( u_inv_v * vec4(decode(colour.rg), 0.0) ).xyz);
+	vec3 normal = normalize( ( ( ( u_inv_v * vec4(decode(colour.rg), 0.0) ).xyz ) * 0.5 ) +0.5 );
 
     gl_FragColor.rgb = normal;
     gl_FragColor.a = 1.0;

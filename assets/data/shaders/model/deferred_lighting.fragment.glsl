@@ -23,6 +23,10 @@ vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, float l_p
     float NdotL = dot( n_dir, l_dir );
     float intensity = clamp( NdotL, 0.0, 1.0 );
     float attenuation = 1 / ( l_attenuation*distance + l_attenuation / 10 * distance * distance );
+
+    if (attenuation < 0.005) {
+      discard;
+    }
  
    	vec3 diffuse = l_colour * intensity * l_power * attenuation;
 
@@ -65,15 +69,7 @@ void main()
 
 	vec3 viewRay = normalize( v_pos - u_cam );
 
-	vec3 pixelPos;
-	//pixelPos.xy = screenPos * 2 - 1;
-	//pixelPos.z = depth;
-	//pixelPos.w = 1.0;
-
-	//pixelPos = u_inv_pv * pixelPos;
-	//pixelPos.xyz /= pixelPos.w;
-
-	pixelPos = u_cam + viewRay * ( depth * u_linearDepth );
+	vec3 pixelPos = u_cam + viewRay * ( depth * u_linearDepth );
 
 	vec3 l_vector = u_model - pixelPos;
 	vec3 viewDir = u_cam - pixelPos;
