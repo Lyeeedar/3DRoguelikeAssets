@@ -1,3 +1,8 @@
+#ifdef GL_ES
+	precision highp float;
+ 	#extension GL_OES_standard_derivatives : enable 
+#endif
+
 uniform mat3 u_normal_matrix;
 
 #ifdef u_normalmap_textureFlag
@@ -26,7 +31,7 @@ vec2 packHalf (float depth)
 
 vec2 encode (vec3 n)
 {
-	float f = sqrt(8*n.z+8);
+	float f = sqrt(8.0*n.z+8.0);
     return n.xy / f + 0.5;
 }
 

@@ -1,3 +1,8 @@
+#ifdef GL_ES
+	precision mediump float;
+
+#endif
+
 uniform sampler2D u_diffuse_texture;
 
 varying vec2 v_texCoords;

@@ -1,5 +1,6 @@
 #ifdef GL_ES
-    precision mediump float;
+	precision mediump float;
+
 #endif
 
 varying vec4 v_color;
@@ -14,6 +15,7 @@ float unpackHalf (vec2 colour)
 void main() {
 
 	vec4 colour = texture2D(u_texture, v_texCoords);
-    gl_FragColor.rgb = unpackHalf(colour.ba);
+	float depth = unpackHalf(colour.ba);
+    gl_FragColor.rgb = vec3(depth, depth, depth);
     gl_FragColor.a = 1.0;
 }

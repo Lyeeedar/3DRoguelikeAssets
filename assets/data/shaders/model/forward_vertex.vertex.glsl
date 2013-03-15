@@ -1,3 +1,5 @@
+
+
 attribute vec3 a_position; 
 attribute vec2 a_texCoord0;
 attribute vec3 a_normal;
@@ -28,7 +30,7 @@ vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, float l_p
     //Intensity of the diffuse light. Saturate to keep within the 0-1 range.
     float NdotL = dot( n_dir, l_dir );
     float intensity = clamp( NdotL, 0.0, 1.0 );
-    float attenuation = 1 / ( l_attenuation*distance + l_attenuation / 10 * distance * distance );
+    float attenuation = 1.0 / ( l_attenuation*distance + l_attenuation / 10.0 * distance * distance );
  
     // Calculate the diffuse light factoring in light color, power and the attenuation
    	return l_colour * intensity * l_power * attenuation;

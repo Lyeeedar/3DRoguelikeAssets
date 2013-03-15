@@ -1,3 +1,6 @@
+#ifdef GL_ES
+	precision mediump float;
+#endif
 
 uniform samplerCube u_texture;
 
