@@ -187,9 +187,9 @@
 		</floor>
 
 		<ambient_light>
-			<red>0.2</red>
-			<green>0.3</green>
-			<blue>0.2</blue>
+			<red>0.4</red>
+			<green>0.5</green>
+			<blue>0.4</blue>
 		</ambient_light>
 
 		<skybox>sky</skybox>

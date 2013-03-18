@@ -27,10 +27,6 @@ vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, float l_p
     float NdotL = dot( n_dir, l_dir );
     float intensity = clamp( NdotL, 0.0, 1.0 );
     float attenuation = 1.0 / ( l_attenuation*distance + l_attenuation / 10.0 * distance * distance );
-
-    if (attenuation < 0.005) {
-      discard;
-    }
  
    	vec3 diffuse = l_colour * intensity * l_power * attenuation;
 

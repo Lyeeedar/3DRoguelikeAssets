@@ -1,5 +1,4 @@
 
-
 attribute vec3 a_position; 
 attribute vec2 a_texCoord0;
 attribute vec3 a_normal;
@@ -25,7 +24,6 @@ vec3 calculateLight(vec3 l_vector, vec3 l_colour, float l_attenuation, float l_p
 {
     float distance = length(l_vector);
     vec3 l_dir = l_vector / distance;
-    //distance = distance * distance;
  
     //Intensity of the diffuse light. Saturate to keep within the 0-1 range.
     float NdotL = dot( n_dir, l_dir );
@@ -46,7 +44,7 @@ void main()
 	#if LIGHTS_NUM > 0	
 		vec3 light = vec3(0.0);
 		vec3 normal = normalize(u_normal_matrix * a_normal);
-		vec3 pos  = worldPos.xyz;
+		vec3 pos = worldPos.xyz;
 		
 		for ( int i = 0; i < LIGHTS_NUM; i++ ){	
 
